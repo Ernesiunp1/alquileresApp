@@ -1,0 +1,36 @@
+
+
+.search{
+    display: flex;
+    justify-content: center;
+    
+    
+   }
+
+
+   ion-card{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+   
+    margin-bottom: 10px;
+}
+
+img{
+
+    height: 50%;
+    width: 90%;
+}
+
+.comuna{
+    display: flex;
+    flex-direction:row-reverse;
+  
+}
+
+ion-searchbar{
+    --border-radius: 25px !important;
+    --placeholder-color: black !important
+}

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <app-boton-menu></app-boton-menu> 
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>
+      <h1>  Listado de Vehiculos </h1>
+    </ion-label>
+  </ion-item>
+
+
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col *ngFor="let vehiculo of vehiculos"  size-xs="12"
+                size-xs="6"
+                size-sm="6"
+                size-md="6"
+                size-lg="4"
+                size-xl="3">
+                <app-tarjeta-vehiculo [vehiculo]="vehiculo"  ></app-tarjeta-vehiculo>
+     
+    </ion-col>
+ </ion-row>
+</ion-grid>
+  
+ <app-tarjeta-vehiculo   ></app-tarjeta-vehiculo>
+
+
+</ion-content>

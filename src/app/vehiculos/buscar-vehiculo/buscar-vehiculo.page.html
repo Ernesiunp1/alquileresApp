@@ -1,0 +1,109 @@
+<ion-header>
+  <app-boton-menu></app-boton-menu>
+ </ion-header>
+ 
+ 
+ 
+ <ion-content>
+     <ion-header>
+         <ion-toolbar>
+             <ion-item lines="none" >
+                 <ion-icon name="search" slot="start" color="primary"></ion-icon>
+                 <ion-title>Busqueda de Vehiculos</ion-title>
+             </ion-item>
+         </ion-toolbar>
+     </ion-header>
+ 
+     <ion-header>
+         <ion-toolbar color="primary">
+             <ion-grid fixed>
+                 <ion-row class="search">
+                     <ion-col size="11" >
+                         <ion-searchbar animated="true" 
+                                         placeholder="Buscar" 
+                                         inputmode="text"
+                                         (ionChange)="aonSearchChange( $event ) "
+                                         minlength="3"
+                                         [debounce]="250">
+                         </ion-searchbar>
+                     </ion-col>
+                 </ion-row>
+             </ion-grid>
+         </ion-toolbar>
+     </ion-header>
+               
+  
+ 
+     <ion-grid >
+         <ion-row  style="display: flex; flex-direction:row-reverse"  >
+             <ion-col   
+                         size-xs="12"  size-sm="9"
+                         size-md="9"   size-lg="12"
+                         size-xl="12" >
+                 <ion-header>
+                     <ion-toolbar>
+                         <ion-title>Resultados</ion-title>
+                     </ion-toolbar>
+                 </ion-header>
+                 <div>
+                     <ion-grid [fixed]="true">
+                         <ion-row class="row" >
+                             <ion-col *ngFor="let vehiculo of vehiculos | filtroBusqueda: textoBuscar ; let i  = index " 
+                                     size-xs="12" size-sm="6"
+                                     size-md="6"  size-lg="4"
+                                     size-xl="3">
+                                 <app-tarjeta-vehiculo [vehiculo]="vehiculo" ></app-tarjeta-vehiculo>
+                             </ion-col>
+                         </ion-row>
+                     </ion-grid>
+                 </div>
+             </ion-col>
+             <ion-col size-xs="12"
+                      size-sm="3"
+                      size-md="3"
+                      size-lg="12"
+                      size-xl="12" >
+                 <ion-header>
+                     <ion-toolbar>
+                         <ion-title>Regiones</ion-title>
+                     </ion-toolbar>
+                 </ion-header>
+                 <ion-list>
+                     <ion-row>
+                         <ion-col *ngFor="let result of results" 
+                                   size-sm="12" 
+                                   size-md="12" 
+                                   size-lg="2"
+                                   size-xl="2">
+                             
+                                 <ion-button (click)="inmuebleRegion( result )"
+                                             expand="block" 
+                                             fill="outline" 
+                                             >
+                                {{result | titlecase }}  
+                                </ion-button>
+                             
+                         </ion-col>
+                     </ion-row>
+                 </ion-list>
+                 </ion-col>
+             </ion-row>
+             </ion-grid>
+                           
+                             
+         </ion-content>
+            
+ 
+            
+                 
+             
+         
+ 
+ 
+ 
+ 
+     
+ 
+   
+ 
+ 

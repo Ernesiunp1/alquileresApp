@@ -1,0 +1,299 @@
+<ion-header>
+  
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"  auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title 
+       >Detalles del Anuncio</ion-title>
+  
+    </ion-toolbar>
+  
+</ion-header>
+
+<ion-content >
+
+
+  <!--  barra de loading   -->
+  <ng-template *ngIf="!inmueble">
+    <div>
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    </div>
+  </ng-template>
+
+   <!-- / barra de loading   -->
+  
+  <div *ngIf="inmueble" >
+
+  <!-- Titulo  -->
+  <ion-item>
+    <ion-label>
+      <h1 style="font-size: 50px ;" > {{inmueble.nombre_inmueble | titlecase }} </h1>
+    </ion-label>
+  </ion-item>
+      
+  <ion-item style="margin-left: 5%;"  lines="none">
+    <ion-icon name="earth-outline" slot="start" color="primary" ></ion-icon>
+    <ion-label>
+      Ubicación: {{inmueble.region | titlecase}}, {{inmueble.ciudad | titlecase}}
+    </ion-label>
+  </ion-item>
+ 
+ 
+  <!-- Grid de imagenes  --> 
+    <ion-grid fixed *ngIf="!inmueble.alt_img1 ;else alt_img" >
+      <ion-row>
+        <ion-col size-xs="12"
+                 size-sm="12"
+                 size-md="6"
+                 size-lg="6"
+                 size-xl="6">
+          <img [src]="inmueble | imagen: 1  " alt="">
+        </ion-col>
+        
+        <ion-col  size-xs="12"
+        size-sm="12"
+        size-md="6"
+        size-lg="6"
+        size-xl="6">
+          <ion-row>
+            <ion-col size="6">
+              <img [src]="inmueble | imagen: 2  " alt="">
+            </ion-col>
+            <ion-col size="6">
+              <img [src]="inmueble | imagen: 3  " alt="">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <img [src]="inmueble | imagen: 4  " alt="">
+            </ion-col>
+            <ion-col size="6">
+              <img [src]="inmueble | imagen: 5  " alt="">
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+<ng-template #alt_img>
+  <ion-grid  >
+    <ion-row>
+      <ion-col size-xs="12"
+               size-sm="12"
+               size-md="6"
+               size-lg="6"
+               size-xl="6">
+        <img [src]="inmueble.alt_img1 " alt="">
+      </ion-col>
+      
+      <ion-col  size-xs="12"
+      size-sm="12"
+      size-md="6"
+      size-lg="6"
+      size-xl="6">
+        <ion-row>
+          <ion-col size="6">
+            <img [src]="inmueble.alt_img2  " alt="">
+          </ion-col>
+          <ion-col size="6">
+            <img [src]="inmueble.alt_img3  " alt="">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <img [src]="inmueble.alt_img4  " alt="">
+          </ion-col>
+          <ion-col size="6">
+            <img [src]="inmueble.alt_img5" alt="">
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ng-template>
+  
+<!-- / Grid de imagenes  --> 
+      <hr>
+
+<!-- Detalle de Instlaciones -->      
+<div class="contenedor-descripciones" >
+  <!-- Lista de Caracteristicas-->   
+<ion-grid fixed>
+  <ion-row class="descripcion-card">
+    <ion-col  size-xs="12"
+              size-sm="12"
+              size-md="12"
+              size-lg="6"
+              size-xl="6">
+      <ion-card>
+        <ion-card-title>Caracteristicas</ion-card-title>
+        <ion-list >
+          <ion-item lines="full"
+                    class="aling">
+              <ion-icon color="primary" name="body-outline"></ion-icon>
+              <ion-label>
+                <strong> Anfitrion: {{inmueble.usuario | titlecase }} </strong> 
+              </ion-label>
+          </ion-item>
+        
+          <ion-item lines="full"
+                    class="aling">
+            <ion-icon color="primary" name="bed-outline"></ion-icon>
+            <ion-label>
+              <strong> Habitaciones: {{ inmueble.habitaciones }} </strong> 
+            </ion-label>
+          </ion-item>
+        
+          <ion-item lines="full"
+                    class="aling">
+            <ion-icon  color="primary" name="trash-bin-outline"></ion-icon>
+            <ion-label>
+              <strong> Baños: </strong>  {{ inmueble.banos }}
+            </ion-label>
+          </ion-item>
+        </ion-list> 
+      </ion-card>
+    </ion-col>
+  
+    <!-- / Lista de Caracteristicas-->   
+     
+    <!-- card de descripcion del inmueble -->  
+           
+            <ion-col size-xs="12"
+            size-sm="12"
+            size-md="12"
+            size-lg="6"
+            size-xl="6">
+                     <ion-card>
+                      <ion-card-header>
+                        <ion-card-subtitle>Descripción</ion-card-subtitle>
+                        <ion-card-title> 
+                           <strong> {{inmueble.nombre_inmueble | titlecase}}  </strong> 
+                        </ion-card-title>
+                      </ion-card-header>
+                        <ion-card-content>
+                          {{inmueble.descripcion}}
+                          
+                        </ion-card-content>
+                      </ion-card>
+             </ion-col>
+   <!-- / card de descripcion del inmueble -->  
+
+  <!-- card de Facilidades  -->          
+            <ion-col  size-xs="12"
+                      size-sm="12"
+                      size-md="12"
+                      size-lg="6"
+                      size-xl="6">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title> <strong> Facilidades </strong></ion-card-title>
+                </ion-card-header>
+                <ion-grid fixed>
+                  <ion-row  >
+                    <ion-col  *ngFor="let item of facilidades"  size="4">
+                      <ion-icon color="primary" name="checkmark-done-outline">
+                        </ion-icon>  {{item}}  </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card>
+              </ion-col>
+                 
+  <!-- / card de Facilidades  -->                       
+  
+          <ion-col  size-xs="12"
+                    size-sm="12"
+                    size-md="12"
+                    size-lg="6"
+                    size-xl="6">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title> 
+                    <strong> Reservas </strong> 
+                  </ion-card-title>
+                </ion-card-header>
+               
+     
+              <ion-grid fixed>
+                  <ion-row >
+                    <ion-col >
+                      <strong> Precio </strong>  
+                        <ion-card-title>{{inmueble.precio | currency: 'ARS  $ '  }} </ion-card-title>
+                       </ion-col>
+                     </ion-row>
+                     
+                      
+                    
+                  <ion-row>
+                    <ion-col size="6">
+                      <ion-button class="whatsapp"
+                                  (click)="onClick()"
+                                  expand="full"
+                                  color="primary">
+                        <ion-icon slot="icon-only" name="logo-whatsapp"></ion-icon>
+                      </ion-button>
+                      
+                    </ion-col>
+                    <ion-col size="6">
+                      <ion-button (click)="onClick()"
+                                  expand="full">
+                        <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
+                      </ion-button>
+                      
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      </div>
+      </div>  
+          
+          
+            
+      <!-- / Detalle de Instlaciones -->   
+      
+      <!-- boton Volver-->
+      <div class="boton">
+        <ion-button class="boton-volver" routerLink="/listado"
+                     color="primary"> Volver </ion-button>
+      </div>
+          
+      
+          
+      </ion-content>
+                    
+            
+              
+                   
+                    
+                  
+                  
+
+
+    
+    
+    
+    
+      
+    
+
+                  
+
+
+                   
+            
+            
+           
+           
+           
+          
+            
+ 
+                
+
+        
+

@@ -1,0 +1,25 @@
+
+    
+    
+    <ion-card  >
+          <img  *ngIf="!inmueble.alt_img1;else alt_img" 
+                [src]="inmueble | imagen: 1" />
+          <ng-template #alt_img >
+            <img  [src]="inmueble.alt_img1" />
+          </ng-template>
+        <ion-card-header>
+          <ion-card-subtitle>{{inmueble.tipo_inmuebles}}</ion-card-subtitle>
+          <ion-card-title>  <strong>  {{inmueble.nombre_inmueble | titlecase}} </strong>   </ion-card-title>
+          <ion-card-subtitle>Region:{{ inmueble.region }}, Cuidad: {{inmueble.ciudad}} </ion-card-subtitle>
+      </ion-card-header>
+      <ion-button 
+              expand="block" 
+              fill="clear" 
+              name="open"
+              color="primary"
+              [routerLink]="['/detalle-anuncio', inmueble.id]">
+              <ion-icon slot="end" name="open-outline"></ion-icon>
+      Ver mas...
+      </ion-button>
+
+    </ion-card>

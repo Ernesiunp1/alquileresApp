@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      
+      </ion-buttons>
+    <ion-title>Datos del Alojamiento</ion-title>
+    <ion-back-button></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+ 
+
+
+  <div id="container">
+    <ion-item *ngIf="!inmueble" >
+           <ion-progress-bar type="indeterminate"></ion-progress-bar>
+     
+    </ion-item>
+  </div>
+
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col  size-xs="12"
+               
+                size-sm="6"
+                size-md="6"
+                size-lg="4"
+                size-xl="3">
+           <h1> Alojamiento: {{ inmueble.nombre_inmueble }} </h1>
+           <h2>  Propietario: <small> {{ inmueble.usuario }}  </small>  </h2>
+           <h3> Ubicacion: <small> Region: {{ inmueble.region }}, ciudad: {{inmueble.ciudad}} </small> </h3>
+            <h3> Amoblado: <small>Si</small> </h3>
+            <h3>Habitaciones:  <small> {{inmueble.habitaciones}} </small></h3>
+            <h3>Precio:  <small> {{ inmueble.precio }}</small></h3>
+            <h3>telefono de contacto:  <small> {{ inmueble.telefono }}</small></h3>
+            <h3>email de contacto:  <small> {{ inmueble.email }}</small></h3>
+          
+    </ion-col>
+    <ion-col  size-xs="12"
+    
+    size-sm="6"
+    size-md="6"
+    size-lg="4"
+    size-xl="3">
+    <img alt="Silhouette of mountains"  src="./assets/inmuebles/{{inmueble.id}}.png" />
+
+</ion-col>
+ </ion-row>
+</ion-grid>
+ 
+<ion-button routerLink="listado"  >Default</ion-button>
+<ion-card>
+  <img alt="Silhouette of mountains" src="./assets/inmuebles/{{inmueble.id}}.png" />
+  <ion-card-header>
+    <ion-card-title>Card Title</ion-card-title>
+    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <h1> Alojamiento: {{ inmueble.nombre_inmueble }} </h1>
+           <h2>  Propietario: <small> {{ inmueble.usuario }}  </small>  </h2>
+           <h3> Ubicacion: <small> Region: {{ inmueble.region }}, ciudad: {{inmueble.ciudad}} </small> </h3>
+            <h3> Amoblado: <small>Si</small> </h3>
+            <h3>Habitaciones:  <small> {{inmueble.habitaciones}} </small></h3>
+            <h3>Precio:  <small> {{ inmueble.precio }}</small></h3>
+            <h3>telefono de contacto:  <small> {{ inmueble.telefono }}</small></h3>
+            <h3>email de contacto:  <small> {{ inmueble.email }}</small></h3>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+
