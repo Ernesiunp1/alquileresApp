@@ -1,0 +1,579 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "usuario": "John Doe",
+      "email": "john.due@gmail.com",
+      "telefono": 123456,
+      "subscripcion": true
+    }
+  ],
+  "anuncios_inmuebles": [
+    {
+      "id": "rambo-apto",
+      "usuario": "sargennto Rambo",
+      "region": "cordoba",
+      "ciudad": "cordoba",
+      "nombre_inmueble": "Torre Luna",
+      "email": "rambo@gmail.com",
+      "telefono": 345123456,
+      "habitaciones": 3,
+      "banos": 1,
+      "amoblado": true,
+      "precio": 35000,
+      "tipo_inmuebles": [
+        "Habitaciones"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Televisor",
+        "Gym",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "tony-apto",
+      "usuario": "Tony Start",
+      "region": "caba",
+      "ciudad": "buenos aires",
+      "nombre_inmueble": "Salon de la Fama",
+      "email": "star@gmail.com",
+      "telefono": 236123456,
+      "habitaciones": 1,
+      "banos": 1,
+      "amoblado": true,
+      "precio": 45000,
+      "tipo_inmuebles": [
+        "Apartamentos"
+      ],
+      "facilidades": [
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "fired-apto",
+      "usuario": "starfired",
+      "region": "caba",
+      "ciudad": "buenos aires",
+      "nombre_inmueble": "edf Eclipse",
+      "email": "star@gmail.com",
+      "telefono": 236123456,
+      "habitaciones": 2,
+      "banos": 1,
+      "amoblado": true,
+      "precio": 25000,
+      "tipo_inmuebles": [
+        "Habitaciones"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "presley-apto",
+      "usuario": "Elvis Presley",
+      "region": "la pampa",
+      "ciudad": "santa rosa",
+      "nombre_inmueble": "edf El Rey",
+      "email": "elvis@gmail.com",
+      "telefono": 236123456,
+      "habitaciones": 5,
+      "banos": 2,
+      "amoblado": true,
+      "precio": 65000,
+      "tipo_inmuebles": [
+        "Cabañas"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Piscina",
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "caraban-apto",
+      "usuario": "camila caraban",
+      "region": "la pampa",
+      "ciudad": "santa rosa",
+      "nombre_inmueble": "El Picacho",
+      "email": "camila@gmail.com",
+      "telefono": 236123456,
+      "habitaciones": 2,
+      "banos": 2,
+      "amoblado": true,
+      "precio": 55000,
+      "tipo_inmuebles": [
+        "casa"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Piscina",
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "chico-apto",
+      "usuario": "chico bestia",
+      "region": "formosa",
+      "ciudad": "formosa",
+      "nombre_inmueble": "Los chorros",
+      "email": "bestia@gmail.com",
+      "telefono": 777123456,
+      "habitaciones": 3,
+      "banos": 1,
+      "amoblado": false,
+      "precio": 36000,
+      "tipo_inmuebles": [
+        "hostel"
+      ],
+      "facilidades": [
+        "cocina",
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "harry-apto",
+      "usuario": "Harry Potter",
+      "region": "jujuy",
+      "ciudad": "san Salvador",
+      "nombre_inmueble": "Hotel Salvador",
+      "email": "potter@gmail.com",
+      "telefono": 777123456,
+      "habitaciones": 1,
+      "banos": 1,
+      "amoblado": true,
+      "precio": 36000,
+      "tipo_inmuebles": [
+        "Cabañas"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Piscina",
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "sargento-apto",
+      "usuario": "sargento rambo",
+      "region": "jujuy",
+      "ciudad": "San Salvador",
+      "nombre_inmueble": "vietnan hostal",
+      "email": "balboa@gmail.com",
+      "telefono": 777123456,
+      "habitaciones": 1,
+      "banos": 1,
+      "amoblado": true,
+      "precio": 36000,
+      "tipo_inmuebles": [
+        "Apartamentos"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Piscina",
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "id": "rocky-apto",
+      "usuario": "rocky balboa",
+      "region": "rioja",
+      "ciudad": "La Rioja",
+      "nombre_inmueble": "La Colina",
+      "email": "rocky@gmail.com",
+      "telefono": 777123456,
+      "habitaciones": 1,
+      "banos": 1,
+      "amoblado": true,
+      "precio": 36000,
+      "tipo_inmuebles": [
+        "Habitaciones"
+      ],
+      "facilidades": [
+        "cocina",
+        "Internet",
+        "Piscina",
+        "Televisor",
+        "Gym",
+        "Plancha",
+        "A/C",
+        "Jacuzzi",
+        "Agua Caliente"
+      ],
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!"
+    },
+    {
+      "usuario": "Ernesto Prueba",
+      "region": "CABA",
+      "ciudad": "Caba",
+      "nombre_inmueble": "Alojamiento de Prueba",
+      "email": "emailprueba@hotmail.com",
+      "telefono": "54321341654654",
+      "habitaciones": 4,
+      "amoblado": true,
+      "banos": 2,
+      "precio": 35000,
+      "tipo_inmuebles": [
+        "Casa"
+      ],
+      "facilidades": [
+        "Gym",
+        "Agua Caliente",
+        "Cocina",
+        "A/C",
+        "Piscina"
+      ],
+      "descripcion": "Este es un Lugar para pasar el fin de semana kjhaskdjhakjsdhkajsh",
+      "alt_img1": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img2": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img3": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img4": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img5": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "id": "QK46Qqy"
+    },
+    {
+      "usuario": "Ernesto Prueba",
+      "region": "CABA",
+      "ciudad": "Caba",
+      "nombre_inmueble": "Alojamiento de Prueba",
+      "email": "emailprueba@hotmail.com",
+      "telefono": "54321341654654",
+      "habitaciones": 4,
+      "amoblado": true,
+      "banos": 2,
+      "precio": 35000,
+      "tipo_inmuebles": [
+        "Casa"
+      ],
+      "facilidades": [
+        "Gym",
+        "Agua Caliente",
+        "Cocina",
+        "A/C",
+        "Piscina"
+      ],
+      "descripcion": "Este es un Lugar para pasar el fin de semana kjhaskdjhakjsdhkajsh",
+      "alt_img1": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img2": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img3": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img4": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "alt_img5": "https://images.ctfassets.net/8lc7xdlkm4kt/PXZEiwmwLUKVStaUqaKlf/2c5f62ded60be34c13e5f2f4546bda48/1.Life72-Apto-53-m2.jpg",
+      "id": "Ep-Ocft"
+    }
+  ],
+  "anuncios_vehiculos": [
+    {
+      "id": "pedro-perez",
+      "usuario": "Pedro Perez",
+      "region": "cordoba",
+      "ciudad": "ciudad de cordoba",
+      "tipo_vehiculo": [
+        "moto"
+      ],
+      "modelo": "tacoma",
+      "anio": 2015,
+      "marca": "ford",
+      "puestos": 5,
+      "aire": true,
+      "email": "pedro.perez@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 15000,
+      "subscripcion": true
+    },
+    {
+      "id": "camila-caraban",
+      "usuario": "camila caraban",
+      "region": "caba",
+      "ciudad": "buenos aires",
+      "tipo_vehiculo": [
+        "Camioneta"
+      ],
+      "modelo": "tacoma",
+      "anio": 2022,
+      "marca": "chevrolet",
+      "puestos": 4,
+      "aire": true,
+      "email": "camila@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 22000,
+      "subscripcion": true
+    },
+    {
+      "id": "elvis-presley",
+      "usuario": "Elvis Presley",
+      "region": "santa rosa",
+      "ciudad": "La Pampa",
+      "tipo_vehiculo": [
+        "moto"
+      ],
+      "modelo": "tacoma",
+      "anio": 2010,
+      "marca": "ford",
+      "puestos": 5,
+      "aire": true,
+      "email": "elvis@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 18000,
+      "subscripcion": true
+    },
+    {
+      "id": "arnold",
+      "usuario": "arnold swazeneger",
+      "region": "santiago del estero",
+      "ciudad": "santiago del estero",
+      "tipo_vehiculo": [
+        "carro"
+      ],
+      "modelo": "tacoma",
+      "anio": 1983,
+      "marca": "kia",
+      "puestos": 5,
+      "aire": true,
+      "email": "arnold@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 18000,
+      "subscripcion": true
+    },
+    {
+      "id": "balboa",
+      "usuario": "Rocky balboa",
+      "region": "sanjuan",
+      "ciudad": "sanjuan",
+      "tipo_vehiculo": [
+        "carro"
+      ],
+      "modelo": "tacoma",
+      "anio": 2017,
+      "marca": "kia",
+      "puestos": 2,
+      "aire": true,
+      "email": "balboa@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 15000,
+      "subscripcion": true
+    },
+    {
+      "id": "rambo",
+      "usuario": "sargento rambo",
+      "region": "la roja",
+      "ciudad": "la Roja",
+      "tipo_vehiculo": [
+        "bicicleta"
+      ],
+      "modelo": "tacoma",
+      "anio": 2001,
+      "marca": "renault",
+      "puestos": 5,
+      "aire": true,
+      "email": "rambo@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 16500,
+      "subscripcion": true
+    },
+    {
+      "id": "star",
+      "usuario": "starfired",
+      "region": "santa Cruz",
+      "ciudad": "Rio Gallego",
+      "tipo_vehiculo": [
+        "scooter"
+      ],
+      "modelo": "tacoma",
+      "anio": 2009,
+      "marca": "Renault",
+      "puestos": 5,
+      "aire": true,
+      "email": "star@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 15000,
+      "subscripcion": true
+    },
+    {
+      "id": "bestia",
+      "usuario": "chico bestia",
+      "region": "caba",
+      "ciudad": "Buenos Aires",
+      "tipo_vehiculo": [
+        "camioneta"
+      ],
+      "modelo": "tacoma",
+      "anio": 1983,
+      "marca": "ford",
+      "puestos": 5,
+      "aire": true,
+      "email": "bestia@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 17000,
+      "subscripcion": true
+    },
+    {
+      "id": "potter",
+      "usuario": "Harry Potter",
+      "region": "caba",
+      "ciudad": "Buenos Aires",
+      "tipo_vehiculo": [
+        "arenero"
+      ],
+      "modelo": "tacoma",
+      "anio": 2011,
+      "marca": "ford",
+      "puestos": 5,
+      "aire": true,
+      "email": "potter@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 20000,
+      "subscripcion": true
+    },
+    {
+      "id": "super",
+      "usuario": "Clarck Kent",
+      "region": "san juan",
+      "ciudad": "San juan",
+      "tipo_vehiculo": [
+        "bote"
+      ],
+      "modelo": "tacoma",
+      "anio": 1983,
+      "marca": "harley davison",
+      "puestos": 2,
+      "aire": false,
+      "email": "superman@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 8500,
+      "subscripcion": true
+    },
+    {
+      "id": "start",
+      "usuario": "Tony Start",
+      "region": "la pampa",
+      "ciudad": "Santa Rosa",
+      "tipo_vehiculo": [
+        "van"
+      ],
+      "modelo": "tacoma",
+      "anio": 2013,
+      "marca": "Ferrary",
+      "puestos": 2,
+      "aire": true,
+      "email": "avengers1@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 35000,
+      "subscripcion": true
+    },
+    {
+      "id": "thorn",
+      "usuario": "Thorn",
+      "region": "tucuman",
+      "ciudad": "San Miguel",
+      "tipo_vehiculo": [
+        "moto de agua"
+      ],
+      "anio": 2018,
+      "marca": "chevrolet",
+      "modelo": "tacoma",
+      "puestos": 5,
+      "aire": true,
+      "email": "trueno@gmail.com",
+      "descripcion": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis natus sint dolore officiis commodi? Itaque repudiandae obcaecati et provident eum numquam odio temporibus ipsam, saepe, quibusdam laudantium animi reprehenderit!",
+      "precio": 22000,
+      "subscripcion": true
+    },
+    {
+      "id": "DLcauRA",
+      "usuario": "Ernesto vivas",
+      "region": "caracas",
+      "ciudad": "caracas",
+      "tipo_vehiculo": "",
+      "anio": 0,
+      "marca": "",
+      "modelo": "",
+      "puestos": 4,
+      "aire": true,
+      "descripcion": "Este es un vehicullo en perfecto estadocvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+      "facilidades": [
+        ""
+      ],
+      "email": "vivas.ernesto@gmail.com",
+      "precio": 50000,
+      "subscripcion": true,
+      "alt_img1": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img2": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img3": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img4": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img5": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "telefono": "3016985106"
+    },
+    {
+      "id": "HNDFdSN",
+      "usuario": "sdfsdfsdf",
+      "region": "sdfsdfsdf",
+      "ciudad": "sdfsdsdf",
+      "tipo_vehiculo": "",
+      "anio": 324234234234,
+      "marca": "sdfsdfsdfs",
+      "modelo": "dsfsdfsdf",
+      "puestos": 4,
+      "aire": true,
+      "descripcion": "sdfddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "facilidades": [
+        ""
+      ],
+      "email": "sdfsdfsdf",
+      "precio": 234234234,
+      "subscripcion": true,
+      "alt_img1": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img2": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img3": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img4": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "alt_img5": "https://http2.mlstatic.com/D_Q_NP_832292-MLA53127648434_012023-R.webp",
+      "telefono": "324234234234"
+    }
+  ]
+}
