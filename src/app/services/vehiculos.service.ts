@@ -2,11 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AnunciosVehiculo, Inmueble } from '../pages/interfaces/interface';
 import { Observable } from 'rxjs';
+import  firebase  from "firebase/compat/app";
+import 'firebase/compat/storage'
+import { environment } from 'src/environments/environment';
+
+
+firebase.initializeApp(environment.firebaseConfig)
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehiculosService {
+
+  storageRef= firebase.app().storage().ref()
 
   constructor(private http: HttpClient) {}
 
@@ -29,5 +37,42 @@ export class VehiculosService {
   }
    
 
+
+
+
+  // async subirImagen(anuncio: string, nombreImg: string, img64: any){
+
+  //   try {
+  //     const respuesta = await this.storageRef.child(`vehiculos/aliasusuario/${anuncio}/${nombreImg}`)
+  //                       .putString(img64, 'data_url')
+  //     console.log(respuesta);
+  //     return await respuesta.ref.getDownloadURL()
+      
+  //   } catch (error) {
+  //     console.log(error);
+  //     return null
+      
+  //   }
+
+  // }
  
+  async subirImagen(anuncio: string, nombreImg: string, img64: any){
+   //async subirImagen(usuario: string, anuncios: string, imagenes: any){
+
+    try {                                           // imagenes/vehiculos/usuario/anuncios/nombredeImagen
+      const respuesta = await this.storageRef.child(`vehiculos/aliasusuario/${anuncio}/${nombreImg}${Date.now()}`)
+                        .putString(img64, 'data_url')
+      console.log(respuesta);
+      return await respuesta.ref.getDownloadURL()
+      
+    } catch (error) {
+      console.log(error);
+      return null
+      
+    }
+
+  }
+
+
+
 }

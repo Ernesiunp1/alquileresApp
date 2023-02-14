@@ -60,6 +60,12 @@ export class AgregarInmueblePage implements OnInit {
   ]
 
 
+  
+ arregloImagenes: any[] = []
+ archivosB64: any[] = []
+ archivos:any[] = []
+ 
+
   constructor( private inmuebleService: InmueblesService ) { }
 
   ngOnInit() {}
@@ -107,5 +113,59 @@ export class AgregarInmueblePage implements OnInit {
     }
 
   }
+
+
+  
+
+// Función para convertir un archivo a Base64
+ convertFileToBase64(file: any) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+// Función para manejar el evento change del input tipo file
+async  handleFileInputChange(event: any) {
+  const files = event.target.files;
+  const base64Files = [];
+  for (const file of files) {
+    const base64 = await this.convertFileToBase64(file);
+    base64Files.push(base64);
+    this.archivosB64 = base64Files
+  }
+  console.log(this.archivosB64);
+}
+
+
+
+
+  subirImagen(formulario: any){
+     
+  if (!formulario.valid ) {
+    return
+  }
+
+    const nombreAnuncio= 'Ernesto'
+    const nombreImagen = ` 'nombreImagen'${Date.now()} `
+
+    this.archivosB64.forEach(element => {
+      console.log(element);
+      this.inmuebleService.subirImagen( nombreAnuncio, nombreImagen, element)
+      
+    });
+      
+
+  }
+
+
+
+
+
+
+
+
 
 }

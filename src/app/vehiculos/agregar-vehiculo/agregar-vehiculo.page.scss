@@ -13,3 +13,51 @@ ion-item{
   
 
 }
+
+#cargar{
+    display: none;
+}
+
+
+.label_Imagenes{
+background-color: red;
+}
+
+
+
+.cargar{
+    color: red;
+    margin: 5%;
+    border: 1px solid red;
+    padding: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cargar:active{
+    transform: scale( 0.9);
+}
+
+
+.col1{
+    
+    border: 2px dashed blue;
+    
+
+}
+
+.row1{
+    display: flex;
+    justify-content: center;
+}
+
+// .gridFormulario{
+//     display: flex;
+//     justify-content: center;
+// }
+
+
+// .container{
+//     display: flex;
+//     justify-content: center;
+// }

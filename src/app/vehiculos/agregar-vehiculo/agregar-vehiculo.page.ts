@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AnunciosVehiculo } from 'src/app/pages/interfaces/interface';
 import { VehiculosService } from 'src/app/services/vehiculos.service';
 
+import { v4 as uuidv4 } from 'uuid'
+import { Usuario } from '../../pages/interfaces/interface';
+
 @Component({
   selector: 'app-agregar-vehiculo',
   templateUrl: './agregar-vehiculo.page.html',
@@ -9,9 +12,14 @@ import { VehiculosService } from 'src/app/services/vehiculos.service';
 })
 export class AgregarVehiculoPage implements OnInit {
 
+  imagenes: any[] = []
+  bandera: boolean = false
+
+  //reader = new FileReader()
+  
   vehiculo: AnunciosVehiculo = {
 
-    id:            '',
+    id:            uuidv4(),
     usuario:       '',
     region:        '',
     ciudad:        '',
@@ -61,6 +69,12 @@ tipo_inmueble= [
 ]
 
 
+
+arregloImagenes: any[] = []
+archivosB64: any[] = []
+archivos:any[] = []
+
+
 constructor( private vehiculosService: VehiculosService ) { }
 
 ngOnInit() {}
@@ -77,41 +91,91 @@ guardar(formulario : any){
   this.vehiculosService.agregarVehiculo( this.vehiculo )
   .subscribe( resp => console.log( 'Resp', resp )
    )
+
+  this.vehiculosService.subirImagen( `${this.vehiculo.usuario!}`,
+                                       `${this.vehiculo.marca}${this.vehiculo.modelo}${this.vehiculo.id}`, 'this.reader.result' )
+                                       .then(urlImage => console.log(urlImage))
+  //   .then(resp => console.log(resp)
      
 }
 
-/*facilidades( check: any ) {
 
-  if (check.selected == true) {
-    this.inmueble.facilidades!.push(check.name)
-  }
-  
-  let index = this.inmueble.facilidades!.indexOf(check.name)
-   
-  if (check.selected == false) {
-    this.inmueble.facilidades!.splice( index! ,  1)
-  }
+// async cargarImagen(evento: any){
+
+//   const archivos = evento.target.files
+//   for (let i = 0; i < archivos.length; i++) {
  
-}*/
+//     const reader = new FileReader()
+  
+//     reader.readAsDataURL(archivos[0])
+//     reader.onloadend = () => {
+//       console.log( evento.target.files[0].name )
+//       this.imagenes.push(reader.result)
+//       console.log(this.imagenes.length);
+      
+//       //this.imagenes.push(evento.target.files[0].name )
+          
+//       this.vehiculosService.subirImagen( `${this.vehiculo.usuario!}${this.vehiculo.id}`, `${this.vehiculo.usuario!}${Date.now()}`, reader.result )
+//       .then(resp => console.log(resp) )
+   
 
-
-/*tipoInmueble( check: any ) {
-  if (check.selected === true) {
-    this.inmueble.tipo_inmuebles?.push(check.tipo)
-  }
     
-  let index = this.inmueble.tipo_inmuebles?.indexOf(check.tipo)
-  console.log( index );
+//     }
 
-  if (check.selected == false) {
-    this.inmueble.tipo_inmuebles!.splice( index! ,  1)
-  }
 
-}*/
+//   } 
+  
+  
+
+// }
+
+
+
+      
+
+    // Función para convertir un archivo a Base64
+    convertFileToBase64(file: any) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    // Función para manejar el evento change del input tipo file
+    async  handleFileInputChange(event: any) {
+      const files = event.target.files;
+      const base64Files = [];
+      for (const file of files) {
+        const base64 = await this.convertFileToBase64(file);
+        base64Files.push(base64);
+        this.archivosB64 = base64Files
+      }
+      console.log(this.archivosB64);
+    }
+
+
+
+
+    subirImagen(formulario: any){
+      
+      if (!formulario.valid ) {
+        return
+      }
+
+
+      const nombreAnuncio= 'Ernesto'
+      const nombreImagen = ` 'nombreImagen'${Date.now()} `
+
+      this.archivosB64.forEach(element => {
+        console.log(element);
+        this.vehiculosService.subirImagen( nombreAnuncio, nombreImagen, element)
+        
+      });
+  
+    }
+
+
 
 }
-
-
- 
-
-
