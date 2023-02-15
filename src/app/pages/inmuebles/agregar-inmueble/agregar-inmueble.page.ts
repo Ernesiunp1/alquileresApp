@@ -11,7 +11,7 @@ import { InmueblesService } from 'src/app/services/inmuebles.service';
 export class AgregarInmueblePage implements OnInit {
 
   inmueble: AnunciosInmueble = {
-      /// id: 'caraban-apto',
+      /// id: 'caraban-apto', 
     usuario:         '',
     region:          '',
     ciudad:          '',
@@ -148,12 +148,13 @@ async  handleFileInputChange(event: any) {
     return
   }
 
-    const nombreAnuncio= 'Ernesto'
-    const nombreImagen = ` 'nombreImagen'${Date.now()} `
+    const nombreAnuncio= `${this.inmueble.usuario?.toLocaleLowerCase().split(" ").join("") }${this.inmueble.nombre_inmueble?.toLocaleLowerCase().trim()} `
+    const nombreImagen = ` ${this.inmueble.nombre_inmueble?.toLocaleLowerCase().split(" ").join("")}${Date.now()} `
+    const usuario = `${this.inmueble.usuario?.toLocaleLowerCase().split(" ").join("")  }  `
 
     this.archivosB64.forEach(element => {
       console.log(element);
-      this.inmuebleService.subirImagen( nombreAnuncio, nombreImagen, element)
+      this.inmuebleService.subirImagen( usuario, nombreAnuncio, nombreImagen, element)
       
     });
       

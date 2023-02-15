@@ -92,10 +92,10 @@ guardar(formulario : any){
   .subscribe( resp => console.log( 'Resp', resp )
    )
 
-  this.vehiculosService.subirImagen( `${this.vehiculo.usuario!}`,
-                                       `${this.vehiculo.marca}${this.vehiculo.modelo}${this.vehiculo.id}`, 'this.reader.result' )
-                                       .then(urlImage => console.log(urlImage))
-  //   .then(resp => console.log(resp)
+  // this.vehiculosService.subirImagen( this.vehiculo.usuario!,  `${this.vehiculo.usuario!}`,
+  //                                      `${this.vehiculo.marca}${this.vehiculo.modelo}${this.vehiculo.id}`, 'this.reader.result' )
+  //                                      .then(urlImage => console.log(urlImage))
+  // //   .then(resp => console.log(resp)
      
 }
 
@@ -162,15 +162,17 @@ guardar(formulario : any){
       
       if (!formulario.valid ) {
         return
-      }
+      } 
 
 
-      const nombreAnuncio= 'Ernesto'
-      const nombreImagen = ` 'nombreImagen'${Date.now()} `
+      const nombreAnuncio= `${this.vehiculo.usuario}${this.vehiculo.marca}${Date.now()}`
+      const nombreImagen = ` ${this.vehiculo.modelo}${Date.now()} `
+      const usuario = this.vehiculo.usuario!
+
 
       this.archivosB64.forEach(element => {
         console.log(element);
-        this.vehiculosService.subirImagen( nombreAnuncio, nombreImagen, element)
+        this.vehiculosService.subirImagen(usuario, nombreAnuncio, nombreImagen, element)
         
       });
   

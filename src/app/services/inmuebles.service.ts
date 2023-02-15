@@ -9,7 +9,7 @@ import  firebase  from "firebase/compat/app";
 
 import 'firebase/compat/storage';
 
-firebase.initializeApp(environment.firebaseConfig)
+firebase.initializeApp(environment.firebaseConfig) 
 
 @Injectable({
   providedIn: 'root'
@@ -44,10 +44,10 @@ export class InmueblesService {
 
   
 
-  async subirImagen(anuncio: string, nombreImg: string, img64: any){
+  async subirImagen(usuario: string, anuncio: string, nombreImg: string, img64: any){
 
     try {
-      const respuesta = await this.storageRef.child(`inmuebles/aliasusuario/${anuncio}/${nombreImg}${Date.now()}`)
+      const respuesta = await this.storageRef.child(`imagenes/inmuebles/${usuario}/${anuncio}/${nombreImg}${Date.now()}`)
                         .putString(img64, 'data_url')
       console.log(respuesta);
       return await respuesta.ref.getDownloadURL()

@@ -4,7 +4,7 @@ import { AnunciosVehiculo, Inmueble } from '../pages/interfaces/interface';
 import { Observable } from 'rxjs';
 import  firebase  from "firebase/compat/app";
 import 'firebase/compat/storage'
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment'; 
 
 
 firebase.initializeApp(environment.firebaseConfig)
@@ -55,12 +55,15 @@ export class VehiculosService {
   //   }
 
   // }
- 
-  async subirImagen(anuncio: string, nombreImg: string, img64: any){
+ //img64 no es lo mismo que nombre de imagen, el img64 es la foto en b64, 
+ //aparte de eso debes indicar el nombre que la misma va a tener
+
+  async subirImagen(usuario: string, anuncio: string, nombreImg: string, img64: any){
    //async subirImagen(usuario: string, anuncios: string, imagenes: any){
 
     try {                                           // imagenes/vehiculos/usuario/anuncios/nombredeImagen
-      const respuesta = await this.storageRef.child(`vehiculos/aliasusuario/${anuncio}/${nombreImg}${Date.now()}`)
+      const respuesta = await this.storageRef
+      .child(`imagenes/vehiculos/${usuario}/${anuncio}/${nombreImg}${Date.now()}`)
                         .putString(img64, 'data_url')
       console.log(respuesta);
       return await respuesta.ref.getDownloadURL()
@@ -71,7 +74,7 @@ export class VehiculosService {
       
     }
 
-  }
+  } 
 
 
 
