@@ -15,7 +15,8 @@ export class AppComponent {
     { title: 'Listado Vehiculos',    url: 'listado-vehiculos',icon: 'car' },
     { title: 'Buscar Vehiculos',     url: 'buscar-vehiculo',  icon: 'search' },
     { title: 'Agregar Vehiculo',     url: 'agregar-vehiculo', icon: 'add' },
-    { title: 'Listado',              url: 'listado',          icon: 'warning' },
+   // { title: 'Listado',              url: 'listado',          icon: 'warning' },
+    { title: 'Login',                url: 'listado',          icon: 'person' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   
