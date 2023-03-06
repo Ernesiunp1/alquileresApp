@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 export interface Inmueble {
     usuarios:           Usuario[];
     anuncios_inmuebles: AnunciosInmueble[];
@@ -36,7 +37,7 @@ export interface AnunciosInmueble {
 }*/
 
 export interface AnunciosVehiculo {
-    id?:            string;
+    id?:            any;
     usuario?:       string;
     region?:        string;
     telefono?:      string;

@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+    firebaseConfig : {
+    apiKey: "AIzaSyAGmzwXoNulsci4_K90p0lDn56Agtfd2D4",
+    authDomain: "superturista-cda8d.firebaseapp.com",
+    databaseURL: "https://superturista-cda8d-default-rtdb.firebaseio.com",
+    projectId: "superturista-cda8d",
+    storageBucket: "superturista-cda8d.appspot.com",
+    messagingSenderId: "67296313879",
+    appId: "1:67296313879:web:8b09cb3f77fef2a5af5252"
+  }
 };
 
 /*
