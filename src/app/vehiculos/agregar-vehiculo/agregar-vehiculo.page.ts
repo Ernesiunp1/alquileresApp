@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AnunciosVehiculo } from 'src/app/pages/interfaces/interface';
+import { AnunciosVehiculo, Vehiculo } from 'src/app/pages/interfaces/interface';
 import { VehiculosService } from 'src/app/services/vehiculos.service';
 
 import { v4 as uuidv4 } from 'uuid'
@@ -12,33 +12,31 @@ import { Usuario } from '../../pages/interfaces/interface';
 })
 export class AgregarVehiculoPage implements OnInit {
 
+ token = localStorage.getItem('token')
   imagenes: any[] = []
   bandera: boolean = false
 
   //reader = new FileReader()
   
-  vehiculo: AnunciosVehiculo = {
+  vehiculo: Vehiculo = {
 
-    id:            uuidv4(),
+    // id:            uuidv4(),
     usuario:       '',
+    nombreAnuncio: '',
     region:        '',
     ciudad:        '',
     tipo_vehiculo: '',
-    anio:          0,
-    marca:         '',
     modelo:        '',
+    marca:         '',
+    anio:          0,
     puestos:       4,
     aire:          true,
     descripcion:   '',
-    facilidades:   [''],
-    email:         '',
+    // facilidades:   [''],
+    // email:         '',
     precio:        0,
     subscripcion:  true,
-    alt_img1:      '',
-    alt_img2:      '',
-    alt_img3:      '',
-    alt_img4:      '',
-    alt_img5:      '',
+   
 
 }
 
@@ -77,7 +75,9 @@ archivos:any[] = []
 
 constructor( private vehiculosService: VehiculosService ) { }
 
-ngOnInit() {}
+ngOnInit() {
+  this.validarToken()
+}
 
 
 onSubmit(){}
@@ -87,10 +87,18 @@ guardar(formulario : any){
   if (!formulario.valid ) {
     return
   }
-  console.log(formulario);
-  this.vehiculosService.agregarVehiculo( this.vehiculo )
-  .subscribe( resp => console.log( 'Resp', resp )
-   )
+
+  if (this.token) {
+     console.log(formulario);
+    this.vehiculosService.agregarVehiculo( this.vehiculo )
+    .subscribe( resp => console.log( 'Resp', resp )
+    )
+  }else{
+    throw new Error("NO EXIETE EL TOKEN");
+  }
+    
+
+ 
 
   // this.vehiculosService.subirImagen( this.vehiculo.usuario!,  `${this.vehiculo.usuario!}`,
   //                                      `${this.vehiculo.marca}${this.vehiculo.modelo}${this.vehiculo.id}`, 'this.reader.result' )
@@ -98,6 +106,15 @@ guardar(formulario : any){
   // //   .then(resp => console.log(resp)
      
 }
+
+validarToken(){
+    if (this.token === "") {
+      console.warn('NO HAY TOKEN');
+      return false
+    }else
+     this.token = localStorage.getItem('token')
+    return true
+  }
 
 
 // async cargarImagen(evento: any){

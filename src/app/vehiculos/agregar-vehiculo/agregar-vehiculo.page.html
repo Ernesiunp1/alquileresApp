@@ -23,6 +23,15 @@
                             name="usuario"></ion-input>
              </ion-item>
              <ion-item fill="outline" >
+                 <ion-label  position="floating">nombreAnuncio <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            [(ngModel)]="vehiculo.nombreAnuncio" 
+                            name="nombreAnuncion"
+                            type="text"
+                            maxlength="50"
+                            minlength="4"></ion-input>
+             </ion-item> 
+             <ion-item fill="outline" >
                  <ion-label  position="floating">Región <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             [(ngModel)]="vehiculo.region" 
@@ -40,30 +49,30 @@
                             minlength="4"
                             maxlength="30"></ion-input>
              </ion-item>
-             <!-- <ion-item fill="outline" >
-                 <ion-label  position="floating">Nombre del Alojamiento <ion-text color="danger">*</ion-text></ion-label>
+             <ion-item fill="outline" >
+                 <ion-label  position="floating">Tipo Vehiculo <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
-                            [(ngModel)]="vehiculo.nombre_vehiculo" 
+                            [(ngModel)]="vehiculo.tipo_vehiculo" 
                             name="alojamiento"
                             type="text"
                             minlength="2"
                             maxlength="30"></ion-input>
-             </ion-item> -->
-             <ion-item fill="outline" >
+             </ion-item>
+             <!-- <ion-item fill="outline" >
                  <ion-label  position="floating">email <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             type="email"
                             placeholder="enail@domain.com"
                             [(ngModel)]="vehiculo.email" 
                             name="email"></ion-input>
-             </ion-item>
-             <ion-item fill="outline" >
+             </ion-item> -->
+             <!-- <ion-item fill="outline" >
                  <ion-label  position="floating">Telefono <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             type="cel"
                             [(ngModel)]="vehiculo.telefono" 
                             name="telefono"></ion-input>
-             </ion-item>
+             </ion-item> -->
             <ion-item fill="outline" >
                  <ion-label  position="floating">Marca <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
@@ -95,28 +104,54 @@
         
         
              <ion-item fill="outline" >
+                 <ion-label  position="floating">Puestos <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            type="number"
+                            [(ngModel)]="vehiculo.puestos" 
+                            name="precio"></ion-input>
+             </ion-item>
+             <ion-item fill="outline" >
+                 <ion-label  position="floating">Aire <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            type="boolean"
+                            value="true"
+                            [(ngModel)]="vehiculo.aire" 
+                            name="precio"></ion-input>
+             </ion-item>
+
+             <ion-item fill="outline" >
+              <ion-label  position="floating">Descripcion <ion-text color="danger">*</ion-text></ion-label>
+              <ion-textarea required
+                            autoGrow="true"
+                            rows="4"
+                            type="text"
+                            placeholder="Escribe tu descripción aqui"
+                            minlength="50"
+                            maxlength="300"
+                            [(ngModel)]="vehiculo.descripcion" 
+                            name="descripcion"></ion-textarea>
+          </ion-item>
+
+             <ion-item fill="outline" >
                  <ion-label  position="floating">Precio <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             type="number"
                             [(ngModel)]="vehiculo.precio" 
                             name="precio"></ion-input>
              </ion-item>
+             <ion-item fill="outline" >
+                 <ion-label  position="floating">Suscripción <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            type="boolean"
+                            value="true"
+                            [(ngModel)]="vehiculo.subscripcion" 
+                            name="precio"></ion-input>
+             </ion-item>
             
            
  
  
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Descripcion <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-textarea required
-                               autoGrow="true"
-                               rows="4"
-                               type="text"
-                               placeholder="Escribe tu descripción aqui"
-                               minlength="50"
-                               maxlength="300"
-                               [(ngModel)]="vehiculo.descripcion" 
-                               name="descripcion"></ion-textarea>
-             </ion-item>
+         
  
 
              <ion-item>

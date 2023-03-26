@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AnunciosInmueble,} from '../../interfaces/interface';
+import { AnunciosInmueble, Inmueble,} from '../../interfaces/interface';
 
 import { InmueblesService } from 'src/app/services/inmuebles.service';
 
@@ -8,7 +8,12 @@ import { InmueblesService } from 'src/app/services/inmuebles.service';
   templateUrl: './agregar-inmueble.page.html',
   styleUrls: ['./agregar-inmueble.page.scss'],
 })
+
 export class AgregarInmueblePage implements OnInit {
+  
+
+  token = localStorage.getItem('token');
+  
 
   inmueble: AnunciosInmueble = {
       /// id: 'caraban-apto', 
@@ -16,8 +21,9 @@ export class AgregarInmueblePage implements OnInit {
     region:          '',
     ciudad:          '',
     nombre_inmueble: '',
-    email:           '',
-    telefono:       +54,
+    nombreAnuncio:    '',
+    //email:           '',
+   // telefono:       +54,
     habitaciones:     1,
     amoblado:       true,
     banos:            1,
@@ -25,11 +31,12 @@ export class AgregarInmueblePage implements OnInit {
     tipo_inmuebles:  [],
     facilidades:     [],
     descripcion:     '',
-    alt_img1:        '',
-    alt_img2:        '',
-    alt_img3:        '',
-    alt_img4:        '',
-    alt_img5:        '',
+    suscripcion:     true,
+    //alt_img1:        '',
+    // alt_img2:        '',
+    // alt_img3:        '',
+    // alt_img4:        '',
+    // alt_img5:        '',
   
   }
 
@@ -68,21 +75,39 @@ export class AgregarInmueblePage implements OnInit {
 
   constructor( private inmuebleService: InmueblesService ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.validarToken()
+  }
 
 
   onSubmit(){}
 
   guardar(formulario : any){
     
+    
     if (!formulario.valid ) {
       return
     }
-    console.log(formulario);
-    this.inmuebleService.agregarInmueble( this.inmueble )
-    .subscribe( resp => console.log( 'Resp', resp )
-     )
+    if (this.token ) {
+      console.log(formulario);
+      this.inmuebleService.agregarInmueble( this.inmueble )
+      .subscribe( resp => console.log( 'Resp', resp )
+      )
+    }else{
+      throw new Error("NO EXISTE TOKEN!!!!!");
+      
+    }
+    
        
+  }
+
+  validarToken(){
+    if (this.token === "") {
+      console.warn('NO HAY TOKEN');
+      return false
+    }else
+     this.token = localStorage.getItem('token')
+    return true
   }
 
   facilidades( check: any ) {

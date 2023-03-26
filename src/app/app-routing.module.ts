@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'buscar-vehiculo',
     loadChildren: () => import('./vehiculos/buscar-vehiculo/buscar-vehiculo.module').then( m => m.BuscarVehiculoPageModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
   }
 ];
 

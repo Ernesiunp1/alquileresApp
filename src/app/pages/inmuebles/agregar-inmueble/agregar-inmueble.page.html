@@ -22,6 +22,17 @@
                            maxlength="20"
                            name="usuario"></ion-input>
             </ion-item>
+
+            <ion-item fill="outline" >
+              <ion-label  position="floating">Nombre Anuncio <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required
+                         [(ngModel)]="inmueble.nombreAnuncio" 
+                         name="nombreAnuncio"
+                         type="text"
+                         maxlength="50"
+                         minlength="4"></ion-input>
+            </ion-item> 
+
             <ion-item fill="outline" >
                 <ion-label  position="floating">Región <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
@@ -49,21 +60,21 @@
                            minlength="2"
                            maxlength="30"></ion-input>
             </ion-item> 
-            <ion-item fill="outline" >
+            <!-- <ion-item fill="outline" >
                 <ion-label  position="floating">email <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
                            type="email"
                            placeholder="enail@domain.com"
                            [(ngModel)]="inmueble.email" 
                            name="email"></ion-input>
-            </ion-item>
-            <ion-item fill="outline" >
+            </ion-item> -->
+            <!-- <ion-item fill="outline" >
                 <ion-label  position="floating">Telefono <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
                            type="cel"
                            [(ngModel)]="inmueble.telefono" 
                            name="telefono"></ion-input>
-            </ion-item>
+            </ion-item> -->
            <ion-item fill="outline" >
                 <ion-label  position="floating">Habitaciones <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
@@ -108,7 +119,7 @@
                               name="descripcion"></ion-textarea>
             </ion-item>
 
-            <ion-item fill="outline" >
+            <!-- <ion-item fill="outline" >
                 <ion-label  position="floating">Imagen 1 <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
                            type="url"
@@ -142,7 +153,7 @@
                             type="url"
                            [(ngModel)]="inmueble.alt_img5" 
                            name="imagen_5"></ion-input>
-            </ion-item>
+            </ion-item> -->
           </ion-col>
 
 

@@ -10,6 +10,7 @@ export interface AnunciosInmueble {
     usuario?:         string;
     region?:          string;
     ciudad?:          string;
+    nombreAnuncio:    string;
     nombre_inmueble?: string;
     email?:           string;
     telefono?:        number;
@@ -25,6 +26,7 @@ export interface AnunciosInmueble {
     alt_img3?:         string;
     alt_img4?:         string;
     alt_img5?:         string;
+    suscripcion:        any
 }
 
 /*export enum TipoInmueble {
@@ -39,6 +41,7 @@ export interface AnunciosInmueble {
 export interface AnunciosVehiculo {
     id?:            any;
     usuario?:       string;
+    nombreAnuncio:  string;
     region?:        string;
     telefono?:      string;
     ciudad?:        string;
@@ -71,13 +74,63 @@ export interface AnunciosVehiculo {
 }*/
 
 export interface Usuario {
-    id:           number;
-    usuario:      string;
-    email:        string;
-    telefono:     number;
-    subscripcion: boolean;
+
+    id:            string,
+    nombre:        string,
+    aliasUsuario?: string,
+    apellido:      string ,
+    email:         any,
+    password:      string,
+    telefono:      number,
+    suscripcion:   boolean,
+    isActive:      boolean,
+    roles:         any,
+    token:          any,
+    
+
+    // id?:           number;
+    // usuario?:      string;
+    // email?:        string;
+    // telefono?:     number;
+    // subscripcion?: boolean;
+
+
 }
 
 export interface Facil{
     facil: string[]
+}
+
+export interface Vehiculo{
+      "usuario":string,
+      "nombreAnuncio": string,
+      "region":string,
+      "ciudad":string,
+      "tipo_vehiculo": string,
+      "modelo":string,
+      "marca":string,
+      "anio": number,
+      "puestos": number,
+      "aire": boolean,
+      "descripcion": string,
+      "precio": number,
+      "subscripcion":boolean
+}
+
+export interface Inmueble {
+
+    "usuario":         string,
+    "nombreAnuncio":   string,
+    "region":          string,
+    "ciudad":          string,
+    "nombre_inmueble": string,
+    "habitaciones":    number,
+    "banos":           number,
+    "amoblado":        boolean,
+    "precio":          number,
+    "tipo_inmuebles":  any,
+    "facilidades":     any,
+    "descripcion":     string,
+    "suscripcion":     boolean
+
 }
