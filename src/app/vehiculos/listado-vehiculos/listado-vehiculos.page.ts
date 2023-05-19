@@ -16,8 +16,7 @@ export class ListadoVehiculosPage implements OnInit {
   ngOnInit() {
 
     this.vehiculoService.getVehiculos()
-    .subscribe( resp => this.vehiculos.push(...resp)
-     )
+    .subscribe( resp => this.vehiculos.push(...resp) )
   }
 
 

@@ -50,7 +50,15 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+  },  {
+    path: 'ofertas',
+    loadChildren: () => import('./pages/ofertas/ofertas.module').then( m => m.OfertasPageModule)
+  },
+  {
+    path: 'pagos',
+    loadChildren: () => import('./pages/pagos/pagos.module').then( m => m.PagosPageModule)
   }
+
 ];
 
 @NgModule({

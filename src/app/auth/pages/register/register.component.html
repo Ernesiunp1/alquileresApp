@@ -6,10 +6,13 @@
 <ion-content >
   <div class="header">
    
+
     <!--Content before waves-->
     <div class="inner-header flex">
     <!--TODO ESTO ES EL LOGO-->
     
+    
+
     <!-- <svg version="1.1" class="logo" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
     <path fill="#FFFFFF" stroke="#000000" stroke-width="10" stroke-miterlimit="10" d="M57,283" />
@@ -20,7 +23,7 @@
     </g>
     </svg> -->
 
-    <ion-card id="card" >
+    <ion-card id="card" mode="md" >
       <ion-card-header color="ligth">
       
         <ion-card-title  id="titulo" color="danger">Registro</ion-card-title>
@@ -37,6 +40,7 @@
             <ion-item >
               <ion-label>Nombre:  <ion-text color="danger">*</ion-text></ion-label>
               <ion-input required
+                         minlength="3"
                          type="text"
                          formControlName ="nombre"
                          placeholder="Ingresa tu nombre aqui"
@@ -45,6 +49,7 @@
             <ion-item>
               <ion-label>Apellido <ion-text color="danger">*</ion-text></ion-label>
               <ion-input required
+                         minlength="3"
                          type="text"
                          formControlName="apellido"
                          placeholder="Apellido">
@@ -53,6 +58,7 @@
             <ion-item>
               <ion-label>Alias <ion-text color="danger">*</ion-text></ion-label>
               <ion-input required
+                         minlength="3"
                          type="text"
                          formControlName="aliasUsuario"
                          placeholder="Alias">
@@ -62,14 +68,16 @@
               <ion-label>Telefono <ion-text color="danger">*</ion-text></ion-label>
               <ion-input required
                          type="number"
+                         minlength="6"
                          formControlName="telefono"
                          placeholder="tu numero telefonico aqui">
                         </ion-input>
             </ion-item>
             <ion-item>
               <ion-label>Email<ion-text color="danger">*</ion-text></ion-label>
-              <ion-input required
-                         type="text"
+              <ion-input 
+                         required
+                         type="email"
                          formControlName="email"
                          placeholder="correo@tucorreo.com">
                         </ion-input>
@@ -79,18 +87,42 @@
               <ion-input required
                          type="password"
                          formControlName="password"
-                         placeholder="Constraseña"></ion-input>
+                         placeholder="Constraseña"
+                         pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                         #pass
+                         ></ion-input>
+                         
+                         
             </ion-item>
+            <ion-label *ngIf="miFormulario.invalid && miFormulario.touched " >
+              <ion-text color="danger">
+                <h6>La clave de tener al menos <br> una mayuscula,  minusculas,
+                   <br> un numero y 6 caracteres de longitud</h6>
+              </ion-text>
+             </ion-label>
 
 
             <ion-item lines="none"></ion-item>
 
-            <ion-button  type="submit"
-                         expand="block" 
-                         size="small" 
-                         color="danger"
-                         > Registro
-            </ion-button>
+                  <ion-button  *ngIf="miFormulario.invalid;else formValid"
+                              type="submit"
+                              expand="block" 
+                              size="small" 
+                              color="danger"
+                              disabled> Registro
+                  </ion-button>
+
+            <ng-template #formValid>
+                  <ion-button type="submit"
+                              expand="block" 
+                              size="small" 
+                              color="danger"> Registro
+                  </ion-button>
+              
+            </ng-template>
+         
+                
+         
           </form>
 <!-- 
           <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">

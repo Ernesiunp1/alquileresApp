@@ -1,5 +1,5 @@
 <ion-header>
- <app-boton-menu></app-boton-menu>
+ <app-boton-menu></app-boton-menu> 
  <ion-toolbar>
     <ion-title>Agregar Publicación</ion-title>
   </ion-toolbar>
@@ -12,8 +12,11 @@
 <form (ngSubmit)="onSubmit()" #miFormulario="ngForm">
     <ion-grid fixed>
         <ion-row>
-            <ion-col size-xs="12" size-sm="12" size-md="6" >
-            <ion-item fill="outline" >
+            <ion-col  style="margin-top: 4%;"
+                      size-xs="12"
+                      size-sm="12" 
+                      size-md="6" >
+            <!-- <ion-item fill="outline" >
                 <ion-label position="floating">Usuario <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
                            [(ngModel)]="inmueble.usuario" 
@@ -21,9 +24,9 @@
                            minlength="3"
                            maxlength="20"
                            name="usuario"></ion-input>
-            </ion-item>
+            </ion-item> -->
 
-            <ion-item fill="outline" >
+            <!-- <ion-item fill="outline" >
               <ion-label  position="floating">Nombre Anuncio <ion-text color="danger">*</ion-text></ion-label>
               <ion-input required
                          [(ngModel)]="inmueble.nombreAnuncio" 
@@ -31,7 +34,7 @@
                          type="text"
                          maxlength="50"
                          minlength="4"></ion-input>
-            </ion-item> 
+            </ion-item>  -->
 
             <ion-item fill="outline" >
                 <ion-label  position="floating">Región <ion-text color="danger">*</ion-text></ion-label>

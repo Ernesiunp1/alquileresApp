@@ -27,7 +27,7 @@
         <ion-card-title> <ion-icon name="person" color="primary"></ion-icon></ion-card-title>
 
       
-      </ion-card-header>
+      </ion-card-header> 
       <ion-card-content>
       
         <form [formGroup]="miFormulario"
@@ -45,6 +45,7 @@
                 <ion-label>Password <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
                            formControlName="password"
+                           pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                 ></ion-input>
               </ion-item>
               
@@ -52,11 +53,25 @@
             
             <ion-item lines="none"></ion-item>
 
-                <ion-button type="submit"
+                <ion-button *ngIf="miFormulario.invalid;else formValid"
+                            type="submit"
                             expand="block" 
                             size="small" 
-                            color="danger"> Login
+                            color="danger"
+                            disabled> Login
                 </ion-button>
+
+              <ng-template #formValid >
+
+                <ion-button 
+                            type="submit"
+                            expand="block" 
+                            size="small" 
+                            color="danger"
+                            > Login
+                </ion-button>
+
+              </ng-template>
 
             <ion-item lines="none"></ion-item>
             
@@ -100,4 +115,6 @@
     <!--Content starts-->
    
     <!--Content ends-->
+
+
 </ion-content>

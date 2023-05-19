@@ -31,3 +31,9 @@ ion-item{
 .cargar:active{
     transform: scale( 0.9);
 }
+
+#iheader{
+    display: flex;
+    justify-content:space-between
+    
+  }

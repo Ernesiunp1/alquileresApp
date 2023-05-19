@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TarjetaComponent } from './tarjeta/tarjeta.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { TarjetaVehiculoComponent } from './tarjeta-vehiculo/tarjeta-vehiculo.component';
+import { UserIconComponent } from './user-icon/user-icon.component';
+import { SaludoComponent } from './saludo/saludo.component';
 
 
 
@@ -14,7 +16,9 @@ import { TarjetaVehiculoComponent } from './tarjeta-vehiculo/tarjeta-vehiculo.co
   declarations: [
     BotonMenuComponent,
     TarjetaComponent,
-    TarjetaVehiculoComponent
+    TarjetaVehiculoComponent,
+    UserIconComponent,
+    SaludoComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,10 @@ import { TarjetaVehiculoComponent } from './tarjeta-vehiculo/tarjeta-vehiculo.co
     RouterModule,
     BotonMenuComponent,
     TarjetaComponent,
-    TarjetaVehiculoComponent
+    TarjetaVehiculoComponent,
+    UserIconComponent,
+    SaludoComponent
+
   ]
 })
 export class SharedModule { }

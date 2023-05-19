@@ -12,17 +12,18 @@ import { Usuario } from '../../pages/interfaces/interface';
 })
 export class AgregarVehiculoPage implements OnInit {
 
- token = localStorage.getItem('token')
+  token = localStorage.getItem('token')
+  usuario: string | null = localStorage.getItem('usuarioTurista')
   imagenes: any[] = []
   bandera: boolean = false
 
-  //reader = new FileReader()
+  //reader = new FileReader() 
   
   vehiculo: Vehiculo = {
 
     // id:            uuidv4(),
-    usuario:       '',
-    nombreAnuncio: '',
+    usuario:      this.usuario ,
+    nombreAnuncio: 'universal',
     region:        '',
     ciudad:        '',
     tipo_vehiculo: '',
@@ -181,11 +182,9 @@ validarToken(){
         return
       } 
 
-
       const nombreAnuncio= `${this.vehiculo.usuario}${this.vehiculo.marca}${Date.now()}`
       const nombreImagen = ` ${this.vehiculo.modelo}${Date.now()} `
       const usuario = this.vehiculo.usuario!
-
 
       this.archivosB64.forEach(element => {
         console.log(element);

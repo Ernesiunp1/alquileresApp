@@ -9,20 +9,22 @@ import { InmueblesService } from 'src/app/services/inmuebles.service';
   styleUrls: ['./agregar-inmueble.page.scss'],
 })
 
-export class AgregarInmueblePage implements OnInit {
+export class AgregarInmueblePage implements OnInit { 
   
 
   token = localStorage.getItem('token');
+
+  usuario: string | null = localStorage.getItem('usuarioTurista')
   
 
   inmueble: AnunciosInmueble = {
       /// id: 'caraban-apto', 
-    usuario:         '',
+    usuario:         this.usuario,
+    nombreAnuncio:    'universal',
     region:          '',
     ciudad:          '',
     nombre_inmueble: '',
-    nombreAnuncio:    '',
-    //email:           '',
+    //email:          '',
    // telefono:       +54,
     habitaciones:     1,
     amoblado:       true,

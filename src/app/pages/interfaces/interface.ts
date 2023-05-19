@@ -7,7 +7,7 @@ export interface Inmueble {
 
 export interface AnunciosInmueble {
     id?:              string;
-    usuario?:         string;
+    usuario?:         string | null;
     region?:          string;
     ciudad?:          string;
     nombreAnuncio:    string;
@@ -27,6 +27,7 @@ export interface AnunciosInmueble {
     alt_img4?:         string;
     alt_img5?:         string;
     suscripcion:        any
+    user?:              Usuario;
 }
 
 /*export enum TipoInmueble {
@@ -40,7 +41,7 @@ export interface AnunciosInmueble {
 
 export interface AnunciosVehiculo {
     id?:            any;
-    usuario?:       string;
+    usuario?:       string | null;
     nombreAnuncio:  string;
     region?:        string;
     telefono?:      string;
@@ -102,7 +103,7 @@ export interface Facil{
 }
 
 export interface Vehiculo{
-      "usuario":string,
+      "usuario":string | null,
       "nombreAnuncio": string,
       "region":string,
       "ciudad":string,

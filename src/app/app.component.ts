@@ -15,10 +15,11 @@ export class AppComponent {
     { title: 'Listado Vehiculos',    url: 'listado-vehiculos',  icon: 'car' },
     { title: 'Buscar Vehiculos',     url: 'buscar-vehiculo',    icon: 'search' },
     { title: 'Agregar Vehiculo',     url: 'agregar-vehiculo',   icon: 'add' },
-    { title: 'Ofertas',              url: 'listado',            icon: 'ticket' },
+    { title: 'Ofertas',              url: 'ofertas',            icon: 'ticket' },
     { title: 'Login',                url: 'auth/login',         icon: 'person' },
     { title: 'LogOut',               url: 'auth/main',          icon: 'log-out' },
     { title: 'Register',             url: 'auth/register',      icon: 'file-tray-full' },
+    { title: 'Suscripción',          url: 'pagos',              icon: 'ticket' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   
