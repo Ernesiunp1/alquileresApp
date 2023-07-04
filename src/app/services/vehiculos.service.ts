@@ -9,6 +9,8 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 let token = localStorage.getItem('token')
+const urlProd = environment.baseUrl
+
 
 
 const  httpOptions = {
@@ -24,7 +26,7 @@ firebase.initializeApp(environment.firebaseConfig)
 })
 export class VehiculosService implements OnInit {
 
-  storageRef= firebase.app().storage().ref()
+  storageRef= firebase.app().storage().ref();
 
   constructor(private http: HttpClient) {}
   
@@ -36,18 +38,20 @@ export class VehiculosService implements OnInit {
   getVehiculos(){
   //  return this.http.get<AnunciosVehiculo[]>('http://localhost:3000/anuncios_vehiculos')
    return this.http.get<AnunciosVehiculo[]>('http://localhost:3000/api/vehiculos')
+  //  return this.http.get<AnunciosVehiculo[]>(`${urlProd}/vehiculos`)
   }
 
   getVehiculosId(id: string): Observable<AnunciosVehiculo>  {
     //return this.http.get<AnunciosVehiculo>(`http://localhost:3000/anuncios_vehiculos/${id}`)
     return this.http.get<AnunciosVehiculo>(`http://localhost:3000/api/vehiculos/${id}`)
+    // return this.http.get<AnunciosVehiculo>(`${urlProd}/vehiculos/${id}`)
 
   }
-
 
   getVehiculoPorRegion(region : string): Observable<AnunciosVehiculo[]> {
     // return this.http.get<AnunciosVehiculo[]> (`http://localhost:3000/anuncios_vehiculos?region=${region}`)
     return this.http.get<AnunciosVehiculo[]> (`http://localhost:3000/api/anuncios_vehiculos?region=${region}`)
+    // return this.http.get<AnunciosVehiculo[]> (`${urlProd}/anuncios_vehiculos?region=${region}`)
 
    }
 
@@ -55,9 +59,10 @@ export class VehiculosService implements OnInit {
     // return this.http.post<Inmueble>('http://localhost:3000/anuncios_vehiculos', vehiculo)
     console.log(vehiculo);    
     return this.http.post<any>('http://localhost:3000/api/vehiculos', vehiculo, httpOptions  )
+    // return this.http.post<any>(`${urlProd}/vehiculos`, vehiculo, httpOptions  )
 
   }
-
+ 
   validandoToken(){
     let token1 = localStorage.getItem('token')
     token = token1;
@@ -93,7 +98,9 @@ export class VehiculosService implements OnInit {
       .child(`imagenes/vehiculos/${usuario}/${anuncio}/${nombreImg}${Date.now()}`)
                         .putString(img64, 'data_url')
       console.log(respuesta);
+      console.log(await respuesta.ref.getDownloadURL());
       return await respuesta.ref.getDownloadURL()
+       
       
     } catch (error) {
       console.log(error);

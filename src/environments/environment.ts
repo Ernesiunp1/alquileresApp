@@ -4,15 +4,23 @@
 
 export const environment = {
   production: false,
-    firebaseConfig : {
-    apiKey: "AIzaSyAGmzwXoNulsci4_K90p0lDn56Agtfd2D4",
-    authDomain: "superturista-cda8d.firebaseapp.com",
-    databaseURL: "https://superturista-cda8d-default-rtdb.firebaseio.com",
-    projectId: "superturista-cda8d",
-    storageBucket: "superturista-cda8d.appspot.com",
-    messagingSenderId: "67296313879",
-    appId: "1:67296313879:web:8b09cb3f77fef2a5af5252"
-  }
+  baseUrl: 'https://s-turista-back.herokuapp.com/api',
+  firebaseConfig : {
+    apiKey: "AIzaSyDRfoQ52mSXMMkG5tktLyB6l1XEBmSPYms",
+    authDomain: "ruggieriturista.firebaseapp.com",
+    databaseURL: "https://ruggieriturista-default-rtdb.firebaseio.com",
+    projectId: "ruggieriturista",
+    storageBucket: "ruggieriturista.appspot.com",
+    messagingSenderId: "453647937762",
+    appId: "1:453647937762:web:af62472f507819b265eebb"
+  },
+  
+  
+
+
+
+
+
 };
 
 /*

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonSlides, MenuController } from '@ionic/angular';
 import { InmueblesService } from 'src/app/services/inmuebles.service';
 import { AnunciosInmueble, AnunciosVehiculo } from '../interfaces/interface';
 import { HomePageRoutingModule } from './home-routing.module';
@@ -33,11 +33,62 @@ export class HomePage implements OnInit {
   results: string[]= ['cordoba', 'caba', 'la pampa', 'formosa', 'jujuy', 'rioja',
                      'santa rosa', 'santiago del estero', 'san juan', 'la roja', 'santa cruz']
 
+// prueba islides
+// @ViewChild('slides', { static: false }) slides?: IonSlides;
 
-  slidesOpt = {
-    slidesPerView : 1.3,
-    // freeMode : true
+@ViewChild('slides1', { static: false }) slides1?: IonSlides;
+@ViewChild('slides2', { static: false }) slides2?: IonSlides;
+@ViewChild('slides3', { static: false }) slides3?: IonSlides;
+
+onSlidesDidLoad() {
+  this.adjustSlidesPerView();
+  window.addEventListener('resize', () => {
+    this.adjustSlidesPerView();
+  });
+}
+
+adjustSlidesPerView() {
+  const screenWidth = window.innerWidth;
+  let slidesPerView = 5.3; // Número inicial de diapositivas
+
+  if (screenWidth <= 500) {
+    slidesPerView = 1.5; 
+  } else if (screenWidth <= 700) {
+    slidesPerView = 2.5; 
+  }else if (screenWidth <= 850) {
+    slidesPerView = 3.2; 
+  }else if (screenWidth <= 1024) {
+    slidesPerView = 4.2;
+  } else if (screenWidth <= 1200) {
+    slidesPerView = 4.5;
   }
+
+  // this.slides!.options = { slidesPerView: slidesPerView };
+  // this.slides!.update();
+
+  if (this.slides1) {
+    this.slides1.options = { slidesPerView: slidesPerView };
+    this.slides1.update();
+  }
+
+  if (this.slides2) {
+    this.slides2.options = { slidesPerView: slidesPerView };
+    this.slides2.update();
+  }
+
+  if (this.slides3) {
+    this.slides3.options = { slidesPerView: slidesPerView };
+    this.slides3.update();
+  }
+
+}
+
+// prueba ion slides
+  // slidesOpt = {
+  //   slidesPerView : 5,
+    
+  //   // freeMode : true
+  // }
 
   ngOnInit() {
     
@@ -48,7 +99,7 @@ export class HomePage implements OnInit {
     
       for (let index = 0; index < resp.length; index++) {
         let id = resp[index].user!.id;
-        if (resp[index].user!.id.includes('dfa2b9fc-8a16-4425-8ca8-e29c65e8c482')) 
+        if (resp[index].user!.id.includes('1ebf63fd-f6fd-4dfa-afbe-ffe5e2b577aa')) 
           {this.ofertas.push(resp[index]) }
       }
     });

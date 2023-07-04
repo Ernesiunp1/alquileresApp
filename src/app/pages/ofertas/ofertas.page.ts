@@ -17,11 +17,13 @@ inmuebles: AnunciosInmueble[] = []
       
       this.inmuebleService.getInmuebles()
       .subscribe( resp  => {
-        
+        console.log(resp);
        for (let index = 0; index < resp.length; index++) {
         let id = resp[index].user!.id;
         
-        if (resp[index].user!.id.includes('dfa2b9fc-8a16-4425-8ca8-e29c65e8c482')   ) {
+        
+        
+        if (resp[index].user!.id.includes('1ebf63fd-f6fd-4dfa-afbe-ffe5e2b577aa')   ) {
           this.inmuebles.push(resp[index])
           
         }

@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     aliasUsuario:  ['', ],
     telefono: [],
     // telefono: [254559112, ],
-    email:    ['', Validators.email],
+    email:    ['', Validators.email], 
     password: ['', ]
   })
 
@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
       
       this.userServicies.agregarUsuario( this.miFormulario )
       .subscribe( resp => {
+        this.router.navigate(['auth/login'])
         console.log(resp);
       },
 

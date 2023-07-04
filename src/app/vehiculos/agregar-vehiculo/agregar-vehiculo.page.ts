@@ -4,6 +4,7 @@ import { VehiculosService } from 'src/app/services/vehiculos.service';
 
 import { v4 as uuidv4 } from 'uuid'
 import { Usuario } from '../../pages/interfaces/interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-vehiculo',
@@ -23,7 +24,7 @@ export class AgregarVehiculoPage implements OnInit {
 
     // id:            uuidv4(),
     usuario:      this.usuario ,
-    nombreAnuncio: 'universal',
+    nombreAnuncio: `${this.usuario}${uuidv4()}`,
     region:        '',
     ciudad:        '',
     tipo_vehiculo: '',
@@ -74,7 +75,8 @@ archivosB64: any[] = []
 archivos:any[] = []
 
 
-constructor( private vehiculosService: VehiculosService ) { }
+constructor( private vehiculosService: VehiculosService,
+             private router: Router, ) { }
 
 ngOnInit() {
   this.validarToken()
@@ -91,8 +93,10 @@ guardar(formulario : any){
 
   if (this.token) {
      console.log(formulario);
+     this.router.navigate(['home']) ;
     this.vehiculosService.agregarVehiculo( this.vehiculo )
     .subscribe( resp => console.log( 'Resp', resp )
+    
     )
   }else{
     throw new Error("NO EXIETE EL TOKEN");
@@ -147,8 +151,6 @@ validarToken(){
 
 // }
 
-
-
       
 
     // Función para convertir un archivo a Base64
@@ -174,21 +176,21 @@ validarToken(){
     }
 
 
-
-
     subirImagen(formulario: any){
       
       if (!formulario.valid ) {
         return
       } 
-
-      const nombreAnuncio= `${this.vehiculo.usuario}${this.vehiculo.marca}${Date.now()}`
-      const nombreImagen = ` ${this.vehiculo.modelo}${Date.now()} `
+      // const nombreAnuncio= `${this.vehiculo.usuario}${Date.now()}`
+      const nombreAnuncio= this.vehiculo.nombreAnuncio
+      const nombreImagen = ` ${this.vehiculo.modelo}${Date.now()}`
       const usuario = this.vehiculo.usuario!
 
       this.archivosB64.forEach(element => {
         console.log(element);
-        this.vehiculosService.subirImagen(usuario, nombreAnuncio, nombreImagen, element)
+        this.vehiculosService.subirImagen(usuario, nombreAnuncio, nombreImagen, element);
+        
+                
         
       });
   

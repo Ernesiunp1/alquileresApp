@@ -44,6 +44,7 @@
               <ion-item>
                 <ion-label>Password <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
+                          type="password"
                            formControlName="password"
                            pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                 ></ion-input>
@@ -74,14 +75,41 @@
               </ng-template>
 
             <ion-item lines="none"></ion-item>
+
+            
+      <ion-card-subtitle 
+                         id="olvideClave" 
+                         type="danger"
+                         (click) = "presentAlert(miFormulario.value.email)"
+                          disable>
+      Olvide mi password
+      </ion-card-subtitle>
             
           </form>
 
       </ion-card-content>
+
+
+
+
+     
+
+
+   
+
+
+
+
+
+
+
+
+      <br>
       <ion-card-subtitle type="danger"
                          routerLink="/auth/register" >
         Crea una cuenta!!!
       </ion-card-subtitle>
+
       <ion-item>
         
       </ion-item>

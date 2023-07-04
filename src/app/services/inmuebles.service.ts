@@ -8,13 +8,17 @@ import  firebase  from "firebase/compat/app";
 
 
 import 'firebase/compat/storage';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
+
+
+const urlProd = environment.baseUrl
 
 let token = localStorage.getItem('token')
 
 const  httpOptions = {
   headers: new HttpHeaders({   
     Authorization: `Bearer ${token}`
-  })
+  }) 
 }
 
 firebase.initializeApp(environment.firebaseConfig) 
@@ -31,31 +35,39 @@ export class InmueblesService implements OnInit{
 
   constructor(private http: HttpClient) {}
 
+  
+
   ngOnInit(){
     this.validandoToken()
   }
+
+  // ULTIMOS URLS UTILIZADOS ANTES DE LA MODIFICACION SON LOS QUE TIENEN /API/
 
 
   getInmuebles(){
   //  return this.http.get<AnunciosInmueble[]> ('http://localhost:3000/anuncios_inmuebles')
    return this.http.get<AnunciosInmueble[]> ('http://localhost:3000/api/inmuebles')
+  //  return this.http.get<AnunciosInmueble[]> (`${urlProd}/inmuebles`)
   }
  
   getInmueblePorId(id : string): Observable<AnunciosInmueble> {
     // return this.http.get<AnunciosInmueble> (`http://localhost:3000/anuncios_inmuebles/${id}`)
     return this.http.get<AnunciosInmueble> (`http://localhost:3000/api/inmuebles/${id}`)
+    // return this.http.get<AnunciosInmueble> (`${urlProd}/inmuebles/${id}`)
    }
   
    getInmueblePorRegion(region : string): Observable<AnunciosInmueble[]> {
     // return this.http.get<AnunciosInmueble[]> (`http://localhost:3000/anuncios_inmuebles?region=${region}`)
     return this.http.get<AnunciosInmueble[]> (`http://localhost:3000/api/inmuebles?region=${region}`)
+    // return this.http.get<AnunciosInmueble[]> (`${urlProd}/inmuebles?region=${region}`)
    }
 
    
   agregarInmueble( inmueble: AnunciosInmueble ): Observable<Inmueble>{
     console.log(inmueble);
-    return this.http.post<Inmueble>('http://localhost:3000/api/inmuebles', inmueble , httpOptions )
     // return this.http.post<Inmueble>('http://localhost:3000/anuncios_inmuebles', inmueble)
+    return this.http.post<Inmueble>('http://localhost:3000/api/inmuebles', inmueble , httpOptions )
+    // return this.http.post<Inmueble>(`${urlProd}/inmuebles`, inmueble , httpOptions )
   }
    
     

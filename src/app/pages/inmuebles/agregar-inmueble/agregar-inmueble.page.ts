@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnunciosInmueble, Inmueble,} from '../../interfaces/interface';
 
 import { InmueblesService } from 'src/app/services/inmuebles.service';
+import { v4 as uuidv4 } from 'uuid'
 
 @Component({
   selector: 'app-agregar-inmueble',
@@ -20,7 +21,7 @@ export class AgregarInmueblePage implements OnInit {
   inmueble: AnunciosInmueble = {
       /// id: 'caraban-apto', 
     usuario:         this.usuario,
-    nombreAnuncio:    'universal',
+    nombreAnuncio:  `${this.usuario}${uuidv4()}`,
     region:          '',
     ciudad:          '',
     nombre_inmueble: '',
@@ -175,9 +176,9 @@ async  handleFileInputChange(event: any) {
     return
   }
 
-    const nombreAnuncio= `${this.inmueble.usuario?.toLocaleLowerCase().split(" ").join("") }${this.inmueble.nombre_inmueble?.toLocaleLowerCase().trim()} `
+    const nombreAnuncio= this.inmueble.nombreAnuncio
     const nombreImagen = ` ${this.inmueble.nombre_inmueble?.toLocaleLowerCase().split(" ").join("")}${Date.now()} `
-    const usuario = `${this.inmueble.usuario?.toLocaleLowerCase().split(" ").join("")  }  `
+    const usuario = this.inmueble.usuario!
 
     this.archivosB64.forEach(element => {
       console.log(element);

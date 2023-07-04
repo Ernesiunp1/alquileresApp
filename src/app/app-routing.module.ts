@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
-  },  {
+  },
+  {
     path: 'ofertas',
     loadChildren: () => import('./pages/ofertas/ofertas.module').then( m => m.OfertasPageModule)
   },
@@ -63,7 +64,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes,  {useHash: true})
+    // RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }, {useHash: true})
   ],
   exports: [RouterModule]
 })

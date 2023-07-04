@@ -7,65 +7,79 @@
 </ion-header>
 
 
-  <ion-content *ngIf="bandera" >
+  <ion-content *ngIf="bandera " class="header" >
+    <div class="container">
+      <ion-img  class = 'background' ></ion-img>
 
-    <div class="header  ">
+    <!-- barra de busqueda -->
+    <!-- <ion-searchbar  
+                  placeholder="Buscar Inmuebles" 
+                  inputmode="text"
+                  (ionChange)="aonSearchChange( $event ) "
+                  minlength="3"
+                  [debounce]="250"
+                  color="light" 
+                  mode="ios"                          
+                  > 
+    </ion-searchbar> -->
+    <!-- fin de barra de busqueda -->
 
-      <div class="search background" >
-      
-        <ion-searchbar  
-                        placeholder="Buscar Inmuebles" 
-                        inputmode="text"
-                        (ionChange)="aonSearchChange( $event ) "
-                        minlength="3"
-                        [debounce]="250"
-                        color="light" 
-                        mode="ios"                          
-                        > 
-        </ion-searchbar>
-    
-      </div>
-      
-      
-      <!--Content before waves-->
-      <div class="inner-header flex">
-          
-          <div class="wrap-tituloHome" >
-            
-            <div class="TituloHome  " >
-              <!--TODO ESTO ES EL LOGO-->
-              <!-- <img src="cordoba.png" alt=""> -->
-            </div>
-              
-          </div>
-<!-- slides ofertas -->
-          <ion-text  class="texto" color="primary">
-            <h3>Ofertas!</h3> 
-          </ion-text>
-          <ion-slides [options]="slidesOpt" >
-            <ion-slide *ngFor="let oferta of ofertas"   size-xs="11"
-                                                            size-xs="6"
-                                                            size-sm="4"
-                                                            size-md="4"
-                                                            size-lg="4"
-                                                            size-xl="3" >
-            <ion-grid [fixed]="true">
-              <ion-row>
-                <ion-col >
-                  <app-tarjeta [inmueble]="oferta" ></app-tarjeta> 
-                  
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-slide>
-          </ion-slides>
-<!-- fin de slides ofertas -->
 
-<!-- slides inmuebles -->
-          <ion-text  class="texto" color="primary">
+
+    <!-- slides ofertas -->
+        <ion-text  class="texto" color="primary">
+          <h3>Ofertas!</h3> 
+        </ion-text>
+        <!-- <ion-slides [options]="slidesOpt" >
+          <ion-slide *ngFor="let oferta of ofertas"   size-xs="11"
+                                                          size-xs="6"
+                                                          size-sm="4"
+                                                          size-md="4"
+                                                          size-lg="4"
+                                                          size-xl="3" >
+          <ion-grid [fixed]="true">
+            <ion-row>
+              <ion-col >
+                <app-tarjeta [inmueble]="oferta" ></app-tarjeta> 
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+        </ion-slides> -->
+
+
+        <ion-slides #slides1 (ionSlidesDidLoad)="onSlidesDidLoad()" >
+          <ion-slide *ngFor="let oferta of ofertas"   size-xs="11"
+                                                          size-xs="6"
+                                                          size-sm="4"
+                                                          size-md="4"
+                                                          size-lg="4"
+                                                          size-xl="3" >
+          <ion-grid [fixed]="true">
+            <ion-row>
+              <ion-col >
+                <app-tarjeta [inmueble]="oferta" ></app-tarjeta> 
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+        </ion-slides>
+
+
+
+      <!-- fin de slides ofertas -->
+
+
+
+
+           <!-- slides inmuebles -->
+           
+           <ion-text  class="texto" color="primary">
             <h3>Inmuebles</h3>
           </ion-text>
-          <ion-slides [options]="slidesOpt" >
+          <ion-slides #slides2 (ionSlidesDidLoad)="onSlidesDidLoad()" >
             <ion-slide *ngFor="let inmueble of inmuebles"   size-xs="11"
                                                             size-xs="6"
                                                             size-sm="4"
@@ -82,58 +96,41 @@
             </ion-grid>
           </ion-slide>
           </ion-slides>
-<!-- finde slides inmuebles  -->
 
-<!-- slides vehiculos -->
-          
-          <ion-text  class="texto" color="primary">
-            <h3>Vehiculos</h3>
-          </ion-text>
-          <ion-slides [options]="slidesOpt" >
-          <ion-slide *ngFor="let vehiculo of vehiculos"   size-xs="11"
-            size-xs="6"
-                                                            size-sm="4"
-                                                            size-md="4"
-                                                            size-lg="4"
-                                                            size-xl="3" >
-              <ion-grid [fixed]="true">
-                <ion-row>
-                  <ion-col >
-                        <app-tarjeta-vehiculo [vehiculo] = "vehiculo" ></app-tarjeta-vehiculo> 
-                
-                        </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                  </ion-slide>
-          </ion-slides>
+
+        <!-- finde slides inmuebles  -->
+
+
+
+
+        <!-- slides vehiculos -->
+            
+        <ion-text  class="texto" color="primary">
+          <h3>Vehiculos</h3>
+        </ion-text>
+        <ion-slides #slides3 (ionSlidesDidLoad)="onSlidesDidLoad()" >
+        <ion-slide *ngFor="let vehiculo of vehiculos"   size-xs="11"
+          size-xs="6"
+                                                          size-sm="4"
+                                                          size-md="4"
+                                                          size-lg="4"
+                                                          size-xl="3" >
+            <ion-grid [fixed]="true">
+              <ion-row>
+                <ion-col >
+                      <app-tarjeta-vehiculo [vehiculo] = "vehiculo" ></app-tarjeta-vehiculo> 
+              
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-slide>
+        </ion-slides>
 
 <!-- fin de slides vehiculos   -->
-                
-      </div>
-        
-      <!--Waves Container-->
-      <div>
-        <!-- <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g class="parallax">
-            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-          </g>
-        </svg> -->
-      </div>
-      <!--Waves end-->
-      
-    </div>
-    <!--Header ends-->
-    
-    <!--Content starts-->
-    
-    <!--Content ends-->
+
+
+
+  </div> 
   </ion-content>
 
   <ion-content *ngIf="bandera == false" >

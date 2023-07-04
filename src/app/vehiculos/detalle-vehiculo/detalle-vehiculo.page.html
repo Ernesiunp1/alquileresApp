@@ -49,7 +49,7 @@
                size-md="6"
                size-lg="6"
                size-xl="6">
-        <img [src]="vehiculo | imgVehiculos: 1  " alt="">
+        <img [src]="vehiculo | imgVehiculos: vehiculo.alt_img1  " alt="">
       </ion-col>
       
       <ion-col  size-xs="12"
@@ -59,18 +59,18 @@
       size-xl="6">
         <ion-row>
           <ion-col size="6">
-            <img [src]="vehiculo | imgVehiculos: 2  " alt="">
+            <img [src]="vehiculo | imgVehiculos: vehiculo.alt_img2  " alt=""> 
           </ion-col>
           <ion-col size="6">
-            <img [src]="vehiculo | imgVehiculos: 3  " alt="">
+            <img [src]="vehiculo | imgVehiculos:vehiculo.alt_img3  " alt="">
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="6">
-            <img [src]="vehiculo | imgVehiculos: 4  " alt="">
+            <img [src]="vehiculo | imgVehiculos: vehiculo.alt_img4  " alt="">
           </ion-col>
           <ion-col size="6">
-            <img [src]="vehiculo | imgVehiculos: 5  " alt="">
+            <img [src]="vehiculo | imgVehiculos: vehiculo.alt_img5  " alt="">
           </ion-col>
         </ion-row>
       </ion-col>
