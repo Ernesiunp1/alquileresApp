@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaludoComponent implements OnInit {
 
+  user: string | null = ""
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.user = localStorage.getItem('usuarioTurista');
+
+  }
 
 }

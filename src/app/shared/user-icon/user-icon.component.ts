@@ -5,8 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './user-icon.component.html',
   styleUrls: ['./user-icon.component.scss'],
 })
-export class UserIconComponent implements OnInit {
 
+export class UserIconComponent implements OnInit {
+  
+  user = localStorage.getItem('usuarioTurista')
+
+ 
   constructor() { }
 
   ngOnInit() {}

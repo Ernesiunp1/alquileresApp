@@ -67,10 +67,7 @@
             <ion-item>
               <ion-label>Telefono <ion-text color="danger">*</ion-text></ion-label>
               <ion-input required
-                         type="number"
-                         minlength="6"
-                         maxlength="20"
-                         
+                         type="text"                        
                          formControlName="telefono"
                          placeholder="tu numero telefonico aqui">
                         </ion-input>
@@ -93,7 +90,7 @@
                          pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                          #pass
                          ></ion-input>
-                         
+                          
                          
             </ion-item>
             <ion-label *ngIf="miFormulario.invalid && miFormulario.touched " >

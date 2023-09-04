@@ -4,7 +4,7 @@ import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/for
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
+ 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,13 +15,13 @@ export class RegisterComponent implements OnInit {
   miFormulario: FormGroup =  this.fb.group({
     
     //id:       ['', [Validators.required]],
-    nombre:   ['', ],
-    apellido: ['', ],
-    aliasUsuario:  ['', ],
-    telefono: [],
+    nombre:        [''],
+    apellido:      [''],
+    aliasUsuario:  [''],
+    telefono:      [],
     // telefono: [254559112, ],
-    email:    ['', Validators.email], 
-    password: ['', ]
+    email:         ['', Validators.email], 
+    password:      ['', ]
   })
 
   
@@ -38,12 +38,13 @@ export class RegisterComponent implements OnInit {
       
       this.userServicies.agregarUsuario( this.miFormulario )
       .subscribe( resp => {
-        this.router.navigate(['auth/login'])
         console.log(resp);
+        this.router.navigate(['auth/login'])
       },
 
          error => {
-        console.log('Error:', error.error.message);
+          
+        console.log('Error:', error);
         let errorMessage = error.error.message
         this.mostrarAlert(errorMessage)
       });

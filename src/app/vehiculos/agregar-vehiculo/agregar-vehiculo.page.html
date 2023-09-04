@@ -102,7 +102,7 @@
                          maxlength="4"></ion-input>
              </ion-item>
         
-        
+         
              <ion-item fill="outline" >
                  <ion-label  position="floating">Puestos <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
@@ -110,14 +110,14 @@
                             [(ngModel)]="vehiculo.puestos" 
                             name="precio"></ion-input>
              </ion-item>
-             <ion-item fill="outline" >
+             <!-- <ion-item fill="outline" >
                  <ion-label  position="floating">Aire <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             type="boolean"
                             value="true"
                             [(ngModel)]="vehiculo.aire" 
                             name="precio"></ion-input>
-             </ion-item>
+             </ion-item> -->
 
              <ion-item fill="outline" >
               <ion-label  position="floating">Descripcion <ion-text color="danger">*</ion-text></ion-label>
@@ -221,9 +221,17 @@
          <ion-grid fixed class="boton" >
              <ion-row > 
              
-                     <ion-button  class="boton-volver" 
+                     <ion-button  *ngIf="miFormulario.valid && userSuscription"
+                                   class="boton-volver" 
                                   (click)="guardar( miFormulario )"
                                   (click)="subirImagen( miFormulario)"
+                                  color="primary"
+                                  > Publicar
+                     </ion-button>  
+
+                     <ion-button *ngIf="!miFormulario.valid || !userSuscription"
+                                  class="boton-volver" 
+                                  disabled="true"
                                   color="primary"
                                   > Publicar
                      </ion-button>  
@@ -250,9 +258,9 @@
   
      
  </form>
+  
  
- 
- 
+ {{miFormulario.valid}}
  
  </ion-content>
  

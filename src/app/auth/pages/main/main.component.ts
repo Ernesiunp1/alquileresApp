@@ -8,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
 
   constructor() { }
-
+ 
   ngOnInit() {
-    logOut()
+    this.logOut();
+   }
+ 
+
+  logOut() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userid')
+    localStorage.removeItem('usuarioTurista')
   }
 
+
+
 }
-function logOut() {
-  localStorage.removeItem('token')
-}
+
 

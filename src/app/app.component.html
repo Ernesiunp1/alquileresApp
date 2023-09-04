@@ -7,7 +7,8 @@
           <ion-list-header>Alquiler en Viaje</ion-list-header>
           <ion-note>Super Turista App</ion-note>
 
-          <ion-menu-toggle auto-hide="true" *ngFor="let p of appPages; let i = index">
+          <ion-menu-toggle auto-hide="true" 
+                          *ngFor="let p of appPages; let i = index">
           
             <ion-item routerDirection="root" 
                       [routerLink]="[p.url]" 

@@ -10,16 +10,21 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
+
 @NgModule({
   declarations: [ LoginComponent,
                   RegisterComponent, 
-                  MainComponent ],
+                  MainComponent,
+                  
+                 ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     IonicModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class AuthModule { }

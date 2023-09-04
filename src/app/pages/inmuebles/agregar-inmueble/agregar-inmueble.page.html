@@ -71,13 +71,13 @@
                            [(ngModel)]="inmueble.email" 
                            name="email"></ion-input>
             </ion-item> -->
-            <!-- <ion-item fill="outline" >
-                <ion-label  position="floating">Telefono <ion-text color="danger">*</ion-text></ion-label>
+            <ion-item fill="outline" >
+                <ion-label  position="floating">Telefono de contacto <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
-                           type="cel"
+                           type="text"
                            [(ngModel)]="inmueble.telefono" 
-                           name="telefono"></ion-input>
-            </ion-item> -->
+                           name="telefono"></ion-input> 
+            </ion-item>
            <ion-item fill="outline" >
                 <ion-label  position="floating">Habitaciones <ion-text color="danger">*</ion-text></ion-label>
                 <ion-input required
@@ -284,13 +284,21 @@
         <ion-grid fixed class="boton" >
             <ion-row >
                
-                    <ion-button  class="boton-volver" 
+                    <ion-button  *ngIf="miFormulario.valid && userSuscription"
+                                 class="boton-volver" 
                                  (click)="guardar( miFormulario )"
                                  (click)="subirImagen( miFormulario )"
                                  color="primary"
-                                 routerLink="/listado"
+                                 routerLink="/listado"                                 
                                  > Publicar
                     </ion-button> 
+                    <ion-button  *ngIf="!miFormulario.valid || userSuscription == false"
+                                  class="boton-volver"                                  
+                                  color="primary"
+                                  disabled="true"
+                                                            
+                    > Publicar
+       </ion-button> 
                 
                 
                     <ion-button class="boton-volver" 
@@ -299,10 +307,7 @@
                     </ion-button>
                 
             </ion-row>
-        </ion-grid>
-        
-
-                   
+        </ion-grid>         
     
 
  

@@ -5,23 +5,60 @@
   <app-boton-menu></app-boton-menu>  <app-user-icon></app-user-icon>
   
 </ion-header>
-
+ 
 
   <ion-content *ngIf="bandera " class="header" >
     <div class="container">
       <ion-img  class = 'background' ></ion-img>
+      <!-- <ion-img src = "./BANNERDEFINITIVO1.png"></ion-img> -->
 
     <!-- barra de busqueda -->
-    <!-- <ion-searchbar  
+    <!-- <ion-searchbar  color="danger"
                   placeholder="Buscar Inmuebles" 
                   inputmode="text"
                   (ionChange)="aonSearchChange( $event ) "
                   minlength="3"
                   [debounce]="250"
                   color="light" 
-                  mode="ios"                          
+                                         
                   > 
+
+      
+
+
     </ion-searchbar> -->
+
+    <ion-header>
+      <ion-toolbar color="primary">
+          <ion-grid fixed>
+              <ion-row class="search">
+                  <ion-col size="11" >
+                      <ion-searchbar animated="true" 
+                                      placeholder="Buscar"                                                                          
+                                      minlength="3"
+                                      (click)="navegar()"
+                                      [debounce]="250">
+                      </ion-searchbar>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
+      </ion-toolbar>
+  </ion-header>
+
+    <!-- <ion-searchbar color="danger" placeholder="Danger"></ion-searchbar> -->
+
+
+    <!-- <ion-row class="search">
+      <ion-col size="11" >
+          <ion-searchbar animated="true" 
+                          placeholder="Buscar" 
+                          inputmode="text"
+                          (ionChange)="aonSearchChange( $event ) "
+                          minlength="3"
+                          [debounce]="250">
+          </ion-searchbar>
+      </ion-col>
+  </ion-row> -->
     <!-- fin de barra de busqueda -->
 
 
@@ -71,6 +108,8 @@
 
       <!-- fin de slides ofertas -->
 
+
+      <ion-img class = 'banner2' ></ion-img>
 
 
 

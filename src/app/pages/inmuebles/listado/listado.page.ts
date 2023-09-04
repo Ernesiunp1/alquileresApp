@@ -17,7 +17,7 @@ export class ListadoPage implements OnInit {
   
  
 
-  ngOnInit() {
+  ngOnInit() { 
       
       this.inmuebleService.getInmuebles()
       .subscribe( resp  =>  this.inmuebles.push(...resp) )

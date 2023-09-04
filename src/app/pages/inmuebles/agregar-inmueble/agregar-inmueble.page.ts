@@ -3,6 +3,8 @@ import { AnunciosInmueble, Inmueble,} from '../../interfaces/interface';
 
 import { InmueblesService } from 'src/app/services/inmuebles.service';
 import { v4 as uuidv4 } from 'uuid'
+import { UserService } from 'src/app/services/user.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-agregar-inmueble',
@@ -16,17 +18,20 @@ export class AgregarInmueblePage implements OnInit {
   token = localStorage.getItem('token');
 
   usuario: string | null = localStorage.getItem('usuarioTurista')
+
+  deshabilitarGuardar: boolean = true
+  userSuscription : boolean = true
   
 
   inmueble: AnunciosInmueble = {
       /// id: 'caraban-apto', 
     usuario:         this.usuario,
     nombreAnuncio:  `${this.usuario}${uuidv4()}`,
-    region:          '',
-    ciudad:          '',
-    nombre_inmueble: '',
+    region:          ''.toLowerCase(),
+    ciudad:          ''.toLowerCase(),
+    nombre_inmueble: ''.toLowerCase(),
     //email:          '',
-   // telefono:       +54,
+    telefono:       +54,
     habitaciones:     1,
     amoblado:       true,
     banos:            1,
@@ -76,21 +81,26 @@ export class AgregarInmueblePage implements OnInit {
  archivos:any[] = []
  
 
-  constructor( private inmuebleService: InmueblesService ) { }
+  constructor( private inmuebleService: InmueblesService,
+               private userService: UserService,
+               private alertCtrl: AlertController ) { }
 
   ngOnInit() {
     this.validarToken()
+    this.obtenerUsuario()
+    
+
   }
 
 
   onSubmit(){}
 
-  guardar(formulario : any){
+  guardar(formulario : any){    
     
-    
-    if (!formulario.valid ) {
+    if (!formulario.valid ) {      
       return
     }
+
     if (this.token ) {
       console.log(formulario);
       this.inmuebleService.agregarInmueble( this.inmueble )
@@ -103,6 +113,13 @@ export class AgregarInmueblePage implements OnInit {
     
        
   }
+
+  guardarTrue(miFormulario: any){
+    if (miFormulario.valid) {
+      this.deshabilitarGuardar = false
+    }
+  }
+
 
   validarToken(){
     if (this.token === "") {
@@ -143,6 +160,32 @@ export class AgregarInmueblePage implements OnInit {
   }
 
 
+  async obtenerUsuario(){
+    const userId = localStorage.getItem('userid') 
+    this.userService.getUsuarioById(userId).subscribe(
+      user => {  
+       
+       if (user.suscripcion == false) {
+          this.userSuscription = false;         
+          this.presentAlert()        
+        
+       }
+      }
+    )
+  }
+
+
+  async presentAlert(){
+    const alert = await this.alertCtrl.create({
+      header: 'Suscripción',
+      message: 'Para realizar publicaciones\n debes darte de Alta',
+      buttons: ['OK']
+    })
+
+    await alert.present()
+  }
+
+
   
 
 // Función para convertir un archivo a Base64
@@ -166,8 +209,6 @@ async  handleFileInputChange(event: any) {
   }
   console.log(this.archivosB64);
 }
-
-
 
 
   subirImagen(formulario: any){

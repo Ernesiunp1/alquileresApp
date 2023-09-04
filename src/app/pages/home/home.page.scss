@@ -110,6 +110,7 @@ p {
 #iheader{
   display: flex;
   justify-content: space-between;
+ 
 }
 
 
@@ -124,6 +125,7 @@ p {
 .search{
   display: flex;
   justify-content: center;
+  
 }
 
 .ion-card{
@@ -148,16 +150,78 @@ p {
 
 // }
 
-.background{
-  background-image: url(./DALL·E23.png);
-  height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 3%;
-  
+@media (max-width: 768px){
+
+  .background{
+    background-image: url(./movil.png); 
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    // margin-bottom: 3%;  
+  }
+
 
 }
+
+
+// banner para pantallas grandes
+@media (min-width: 769px){ 
+  
+  .background{
+    background-image: url(./PC.png); 
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    // margin-bottom: 3%;
+  
+  }
+ 
+}
+
+
+// BANNER DOS PARA MOVIL
+@media (max-width: 768px){
+
+  .banner2 {
+    background-image: url(./b2movil.png); 
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+  
+
+
+
+// BANNER2 PARA PANTALLAS GRANDES
+@media (min-width: 769px){
+
+  .banner2 {
+    background-image: url(./B2PC.png); 
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .fondo_celular{
   height: 100%

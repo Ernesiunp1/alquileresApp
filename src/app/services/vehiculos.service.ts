@@ -37,29 +37,28 @@ export class VehiculosService implements OnInit {
 
   getVehiculos(){
   //  return this.http.get<AnunciosVehiculo[]>('http://localhost:3000/anuncios_vehiculos')
-   return this.http.get<AnunciosVehiculo[]>('http://localhost:3000/api/vehiculos')
-  //  return this.http.get<AnunciosVehiculo[]>(`${urlProd}/vehiculos`)
+  //  return this.http.get<AnunciosVehiculo[]>('http://localhost:3000/api/vehiculos')
+   return this.http.get<AnunciosVehiculo[]>(`${urlProd}/vehiculos`)
   }
 
   getVehiculosId(id: string): Observable<AnunciosVehiculo>  {
     //return this.http.get<AnunciosVehiculo>(`http://localhost:3000/anuncios_vehiculos/${id}`)
-    return this.http.get<AnunciosVehiculo>(`http://localhost:3000/api/vehiculos/${id}`)
-    // return this.http.get<AnunciosVehiculo>(`${urlProd}/vehiculos/${id}`)
+    // return this.http.get<AnunciosVehiculo>(`http://localhost:3000/api/vehiculos/${id}`)
+    return this.http.get<AnunciosVehiculo>(`${urlProd}/vehiculos/${id}`)
 
   }
 
   getVehiculoPorRegion(region : string): Observable<AnunciosVehiculo[]> {
     // return this.http.get<AnunciosVehiculo[]> (`http://localhost:3000/anuncios_vehiculos?region=${region}`)
-    return this.http.get<AnunciosVehiculo[]> (`http://localhost:3000/api/anuncios_vehiculos?region=${region}`)
-    // return this.http.get<AnunciosVehiculo[]> (`${urlProd}/anuncios_vehiculos?region=${region}`)
+    // return this.http.get<AnunciosVehiculo[]> (`http://localhost:3000/api/anuncios_vehiculos?region=${region}`)
+    return this.http.get<AnunciosVehiculo[]> (`${urlProd}/anuncios_vehiculos?region=${region}`)
 
    }
 
    agregarVehiculo( vehiculo: AnunciosVehiculo ): Observable<Vehiculo>{
-    // return this.http.post<Inmueble>('http://localhost:3000/anuncios_vehiculos', vehiculo)
-    console.log(vehiculo);    
-    return this.http.post<any>('http://localhost:3000/api/vehiculos', vehiculo, httpOptions  )
-    // return this.http.post<any>(`${urlProd}/vehiculos`, vehiculo, httpOptions  )
+    // return this.http.post<Inmueble>('http://localhost:3000/anuncios_vehiculos', vehiculo)  
+    // return this.http.post<any>('http://localhost:3000/api/vehiculos', vehiculo, httpOptions  )
+    return this.http.post<any>(`${urlProd}/vehiculos`, vehiculo, httpOptions  )
 
   }
  
@@ -68,6 +67,11 @@ export class VehiculosService implements OnInit {
     token = token1;
   }
    
+
+  borrarVehiculo(id: string | undefined): Observable<Vehiculo> {
+    // return this.http.delete<Vehiculo>(`http://localhost:3000/api/vehiculos/${id}`, httpOptions )
+    return this.http.post<Vehiculo>(`${urlProd}/vehiculos/${id}`, httpOptions )
+  }
 
 
 

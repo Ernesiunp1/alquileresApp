@@ -5,6 +5,8 @@ import { VehiculosService } from 'src/app/services/vehiculos.service';
 import { v4 as uuidv4 } from 'uuid'
 import { Usuario } from '../../pages/interfaces/interface';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-agregar-vehiculo',
@@ -17,6 +19,7 @@ export class AgregarVehiculoPage implements OnInit {
   usuario: string | null = localStorage.getItem('usuarioTurista')
   imagenes: any[] = []
   bandera: boolean = false
+  userSuscription : boolean = true
 
   //reader = new FileReader() 
   
@@ -76,10 +79,13 @@ archivos:any[] = []
 
 
 constructor( private vehiculosService: VehiculosService,
-             private router: Router, ) { }
+             private router: Router,
+             private userService: UserService,
+             private alertCtrl : AlertController ) { }
 
 ngOnInit() {
   this.validarToken()
+  this.obtenerUsuario()
 }
 
 
@@ -122,34 +128,31 @@ validarToken(){
   }
 
 
-// async cargarImagen(evento: any){
 
-//   const archivos = evento.target.files
-//   for (let i = 0; i < archivos.length; i++) {
- 
-//     const reader = new FileReader()
-  
-//     reader.readAsDataURL(archivos[0])
-//     reader.onloadend = () => {
-//       console.log( evento.target.files[0].name )
-//       this.imagenes.push(reader.result)
-//       console.log(this.imagenes.length);
-      
-//       //this.imagenes.push(evento.target.files[0].name )
-          
-//       this.vehiculosService.subirImagen( `${this.vehiculo.usuario!}${this.vehiculo.id}`, `${this.vehiculo.usuario!}${Date.now()}`, reader.result )
-//       .then(resp => console.log(resp) )
-   
-
-    
-//     }
+  async obtenerUsuario(){
+    const userId = localStorage.getItem('userid')
+    this.userService.getUsuarioById(userId).subscribe(
+      user => {  
+       
+       if (user.suscripcion == false) {
+          this.userSuscription = false;         
+          this.presentAlert()        
+        
+       }
+      }
+    )
+  }
 
 
-//   } 
-  
-  
+  async presentAlert(){
+    const alert = await this.alertCtrl.create({
+      header: 'Suscripción',
+      message: 'Para realizar publicaciones\n debes darte de Alta',
+      buttons: ['OK']
+    })
 
-// }
+    await alert.present()
+  }
 
       
 
@@ -161,7 +164,7 @@ validarToken(){
         reader.onload = () => resolve(reader.result);
         reader.onerror = error => reject(error);
       });
-    }
+    } 
 
     // Función para manejar el evento change del input tipo file
     async  handleFileInputChange(event: any) {

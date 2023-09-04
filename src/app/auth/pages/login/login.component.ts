@@ -12,25 +12,29 @@ interface BusquedaEmail {
   mensaje?: string
 } 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
+  token = localStorage.getItem('token');
+
   public alertButtons = ['ok'];
 
   private _usuario!: Usuario;
 
   get usuario() {
-    console.log(this._usuario);
+    console.log(this._usuario); 
 
     return { ...this._usuario };
   }
 
   miFormulario: FormGroup = this.fb.group({
     email: [''],
-    password: [''],
+    password: [''], 
   });
 
   constructor(
@@ -40,7 +44,9 @@ export class LoginComponent implements OnInit {
     private alert: AlertController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.logout()
+  }
 
   login() {
     // console.log(this.miFormulario.value);
@@ -56,20 +62,24 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', this._usuario.token);
         localStorage.setItem('usuarioTurista', this._usuario.nombre);
         localStorage.setItem('userid', this._usuario.id);
+
+        this.validarToken()
+        
         this.router.navigate(['home']);
-      },
+      }, 
 
       (error) => {
         console.log('Error:', error.error.message);
-        let errorMessage = error.error.message;
+        let errorMessage = error.message;
         this.mostrarAlert(errorMessage);
       }
     );
-  }
+  } 
 
 
   logout(){
-    localStorage.removeItem('token')
+    localStorage.clear()
+
   }
 
   mostrarAlert(errorMessage: any) {
@@ -87,17 +97,21 @@ export class LoginComponent implements OnInit {
 
     this.loginService
       .obtenerUsuarioEmail(email)
-      .subscribe((resp: BusquedaEmail) => {
+      .subscribe((resp : BusquedaEmail) => {
         console.log(resp);
-        const respuesta = resp;
+        // const respuesta = resp;
 
-        if (!respuesta.email) {
-          this.emailNoEncontrado(email);
-          return;
+        if (resp) {
+          this.emailEncontrado(email);
+          return ;     
         }
 
-        this.emailEncontrado(email);
-        return resp;
+        // }else{
+        //   this.emailEncontrado(email);
+        //   return ;
+        // }
+
+       
       });
 
     if (!this.miFormulario.value.email) {
@@ -115,6 +129,9 @@ export class LoginComponent implements OnInit {
   }
 
   //  metodo Alert para mostrar cuando el email no fue encontrado en olvide mi clave
+ 
+ 
+ 
   async emailNoEncontrado(email: any) {
 
     const alert = await this.alert.create({
@@ -147,5 +164,19 @@ export class LoginComponent implements OnInit {
 
 
 
+  validarToken(){
+    if (this.token === "") {
+      console.warn('NO HAY TOKEN');
+      return false
+    }else
+     this.token = localStorage.getItem('token')
+    return true
+  }
+
+
+  moverHome(){
+    this.router.navigate(['home'])
+  }
+ 
 
 }

@@ -5,7 +5,7 @@ import { VehiculosService } from 'src/app/services/vehiculos.service';
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage"
 import 'firebase/compat/storage'
 
-
+ 
 @Component({
   selector: 'app-tarjeta-vehiculo',
   templateUrl: './tarjeta-vehiculo.component.html',

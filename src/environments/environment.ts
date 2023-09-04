@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://s-turista-back.herokuapp.com/api',
+  baseUrl: 'https://superturista-cdb26c026516.herokuapp.com/api',
   firebaseConfig : {
     apiKey: "AIzaSyDRfoQ52mSXMMkG5tktLyB6l1XEBmSPYms",
     authDomain: "ruggieriturista.firebaseapp.com",

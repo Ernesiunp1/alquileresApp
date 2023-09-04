@@ -62,6 +62,7 @@ export interface AnunciosVehiculo {
     alt_img3?:         string;
     alt_img4?:         string;
     alt_img5?:         string;
+    user?: Usuario
 
 
 }

@@ -201,7 +201,7 @@
                         
                       </ion-card-content>
                     </ion-card>
-           </ion-col>
+           </ion-col> 
  <!-- / card de descripcion del vehiculo -->  
 
 <!-- card de Facilidades        
@@ -280,7 +280,18 @@
         
         
           
-    <!-- / Detalle de Instlaciones -->   
+    <!-- / Detalle de Instlaciones -->  
+    
+    <!-- Boton eliminar vehiculo -->
+
+    <div class="boton">
+      <ion-button *ngIf="banderaBotonBorrar"
+                  class="boton-volver" 
+                  routerLink="/home"
+                  (click)="borrarVehiculo(idVehiculo)"
+                  color="primary"
+                   > Borrar Anuncio </ion-button>
+    </div>
     
     <!-- boton Volver-->
     <div class="boton">

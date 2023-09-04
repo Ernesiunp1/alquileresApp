@@ -23,9 +23,8 @@ inmuebles: AnunciosInmueble[] = []
         
         
         
-        if (resp[index].user!.id.includes('1ebf63fd-f6fd-4dfa-afbe-ffe5e2b577aa')   ) {
-          this.inmuebles.push(resp[index])
-          
+        if (resp[index].user!.id.includes('68af078c-681b-414b-9eb4-85d57766cc0b')   ) {
+          this.inmuebles.push(resp[index])          
         }
 
         // console.log(resp[index]);

@@ -4,6 +4,7 @@ import { InmueblesService } from 'src/app/services/inmuebles.service';
 import { AnunciosInmueble, AnunciosVehiculo } from '../interfaces/interface';
 import { HomePageRoutingModule } from './home-routing.module';
 import { VehiculosService } from 'src/app/services/vehiculos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,23 +13,30 @@ import { VehiculosService } from 'src/app/services/vehiculos.service';
 })
 export class HomePage implements OnInit {
 
+
+
   @Input() titulo: string = ""
 
   imagen: string = "./assets/fondo_celular.png"
 
   constructor( private menuCtrl: MenuController,
               private inmuebleService: InmueblesService,
-              private vehiculoService: VehiculosService ) { }
+              private vehiculoService: VehiculosService,
+              private router: Router ) { }
+
+
 
   token: any = localStorage.getItem('token')              
   bandera: boolean = false
-  inmuebles: AnunciosInmueble[] = []
+  inmuebles: AnunciosInmueble[] = [] 
 
   ofertas: AnunciosInmueble[] = []
 
   vehiculos: AnunciosVehiculo[] = []
   
   textoBuscar: string = ''
+
+  banderatoken: Boolean = false
 
   results: string[]= ['cordoba', 'caba', 'la pampa', 'formosa', 'jujuy', 'rioja',
                      'santa rosa', 'santiago del estero', 'san juan', 'la roja', 'santa cruz']
@@ -92,6 +100,7 @@ adjustSlidesPerView() {
 
   ngOnInit() {
     
+    // this.refreshPage() 
     // INICIO DE ARREGLO DE INMUEBLES
 
     this.inmuebleService.getInmuebles()
@@ -99,7 +108,7 @@ adjustSlidesPerView() {
     
       for (let index = 0; index < resp.length; index++) {
         let id = resp[index].user!.id;
-        if (resp[index].user!.id.includes('1ebf63fd-f6fd-4dfa-afbe-ffe5e2b577aa')) 
+        if (resp[index].user!.id.includes('68af078c-681b-414b-9eb4-85d57766cc0b')) 
           {this.ofertas.push(resp[index]) }
       }
     });
@@ -160,16 +169,26 @@ temporizador(){
     }, 0);
     
   }
+
+
+  
+
 }
   
   
  
     
   
-  
+refreshPage() {
+  if(this.banderatoken == false)
+  window.location.reload();
+  this.banderatoken = true
+}
 
 
-
+navegar(){
+  this.router.navigate(['buscar-inmueble'])
+}
 
 
 

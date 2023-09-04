@@ -46,28 +46,28 @@ export class InmueblesService implements OnInit{
 
   getInmuebles(){
   //  return this.http.get<AnunciosInmueble[]> ('http://localhost:3000/anuncios_inmuebles')
-   return this.http.get<AnunciosInmueble[]> ('http://localhost:3000/api/inmuebles')
-  //  return this.http.get<AnunciosInmueble[]> (`${urlProd}/inmuebles`)
+  //  return this.http.get<AnunciosInmueble[]> ('http://localhost:3000/api/inmuebles', httpOptions)
+   return this.http.get<AnunciosInmueble[]> (`${urlProd}/inmuebles`, httpOptions)
   }
  
   getInmueblePorId(id : string): Observable<AnunciosInmueble> {
     // return this.http.get<AnunciosInmueble> (`http://localhost:3000/anuncios_inmuebles/${id}`)
-    return this.http.get<AnunciosInmueble> (`http://localhost:3000/api/inmuebles/${id}`)
-    // return this.http.get<AnunciosInmueble> (`${urlProd}/inmuebles/${id}`)
+    // return this.http.get<AnunciosInmueble> (`http://localhost:3000/api/inmuebles/${id}`, httpOptions)
+    return this.http.get<AnunciosInmueble> (`${urlProd}/inmuebles/${id}`, httpOptions)
    }
   
    getInmueblePorRegion(region : string): Observable<AnunciosInmueble[]> {
     // return this.http.get<AnunciosInmueble[]> (`http://localhost:3000/anuncios_inmuebles?region=${region}`)
-    return this.http.get<AnunciosInmueble[]> (`http://localhost:3000/api/inmuebles?region=${region}`)
-    // return this.http.get<AnunciosInmueble[]> (`${urlProd}/inmuebles?region=${region}`)
+    // return this.http.get<AnunciosInmueble[]> (`http://localhost:3000/api/inmuebles?region=${region}`, httpOptions)
+    return this.http.get<AnunciosInmueble[]> (`${urlProd}/inmuebles?region=${region}`, httpOptions)
    }
 
    
   agregarInmueble( inmueble: AnunciosInmueble ): Observable<Inmueble>{
     console.log(inmueble);
     // return this.http.post<Inmueble>('http://localhost:3000/anuncios_inmuebles', inmueble)
-    return this.http.post<Inmueble>('http://localhost:3000/api/inmuebles', inmueble , httpOptions )
-    // return this.http.post<Inmueble>(`${urlProd}/inmuebles`, inmueble , httpOptions )
+    // return this.http.post<Inmueble>('http://localhost:3000/api/inmuebles', inmueble , httpOptions )
+    return this.http.post<Inmueble>(`${urlProd}/inmuebles`, inmueble , httpOptions )
   }
    
     
@@ -94,7 +94,12 @@ export class InmueblesService implements OnInit{
       return null
       
     }
+ 
+  }
 
+  borrarInmueble(id: string | undefined): Observable<Inmueble> {
+    // return this.http.delete<Inmueble>(`http://localhost:3000/api/inmuebles/${id}`, httpOptions )
+    return this.http.delete<Inmueble>(`${urlProd}/inmuebles/${id}`, httpOptions )
   }
 
 
