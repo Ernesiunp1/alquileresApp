@@ -1,0 +1,27 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
+})
+export class MainComponent implements OnInit {
+
+  constructor() { }
+ 
+  ngOnInit() {
+    this.logOut();
+   }
+ 
+
+  logOut() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userid')
+    localStorage.removeItem('usuarioTurista')
+  }
+
+
+
+}
+
+

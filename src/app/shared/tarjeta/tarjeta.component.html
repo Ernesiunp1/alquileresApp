@@ -3,7 +3,7 @@
     
     <ion-card  >
           <img  *ngIf="!inmueble.alt_img1;else alt_img" 
-                [src]="inmueble | imagen: 1" />
+                [src]="inmueble | imagen: inmueble.alt_img1" />
           <ng-template #alt_img >
             <img  [src]="inmueble.alt_img1" />
           </ng-template>

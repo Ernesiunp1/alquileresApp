@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   {
@@ -46,12 +46,35 @@ const routes: Routes = [
   {
     path: 'buscar-vehiculo',
     loadChildren: () => import('./vehiculos/buscar-vehiculo/buscar-vehiculo.module').then( m => m.BuscarVehiculoPageModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+  },
+  {
+    path: 'ofertas',
+    loadChildren: () => import('./pages/ofertas/ofertas.module').then( m => m.OfertasPageModule)
+  },
+  {
+    path: 'pagos',
+    loadChildren: () => import('./pages/pagos/pagos.module').then( m => m.PagosPageModule)
+  },
+  {
+    path: 'mi-perfil',
+    loadChildren: () => import('./pages/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
+  },  {
+    path: 'restaurar',
+    loadChildren: () => import('./pages/restaurar/restaurar.module').then( m => m.RestaurarPageModule)
   }
+
+
+
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes,  {useHash: true})
+    // RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }, {useHash: true})
   ],
   exports: [RouterModule]
 })

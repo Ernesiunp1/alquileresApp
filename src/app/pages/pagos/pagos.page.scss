@@ -1,0 +1,35 @@
+body {
+  background-color: rgb(255, 241, 240);
+}
+
+.contenedor{
+  justify-content: center;
+  align-items: center;
+  
+  // height: 100vh;
+  // background: linear-gradient(60deg, rgb(252, 23, 80) 0%, rgb(129, 3, 45) 100%);
+  background-color: rgb(255, 241, 240);
+  
+  // align-items: center;
+}
+
+.ion-card{
+  align-items: center;
+}
+
+.fila{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  flex-direction: row;
+  // height: 100vh;
+}
+
+ion-card{
+  margin-top: 20px;
+}
+
+ion-card-content {
+  text-align: justify;
+}

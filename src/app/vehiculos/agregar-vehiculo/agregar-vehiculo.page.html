@@ -5,15 +5,15 @@
    </ion-toolbar>
  </ion-header>
  
- <ion-content>
+ <ion-content class="container" >
  
  
  
  <form (ngSubmit)="onSubmit()" #miFormulario="ngForm">
-     <ion-grid fixed>
-         <ion-row>
-             <ion-col size-xs="12" size-sm="12" size-md="6" >
-             <ion-item fill="outline" >
+     <ion-grid class="gridFormulario" fixed>
+         <ion-row class="row1" >
+             <ion-col class="col1" size-xs="12" size-sm="12" size-md="6" >
+             <!-- <ion-item fill="outline" >
                  <ion-label position="floating">Usuario <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             [(ngModel)]="vehiculo.usuario" 
@@ -22,6 +22,15 @@
                             maxlength="20"
                             name="usuario"></ion-input>
              </ion-item>
+             <ion-item fill="outline" >
+                 <ion-label  position="floating">nombreAnuncio <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            [(ngModel)]="vehiculo.nombreAnuncio" 
+                            name="nombreAnuncion"
+                            type="text"
+                            maxlength="50"
+                            minlength="4"></ion-input>
+             </ion-item>  -->
              <ion-item fill="outline" >
                  <ion-label  position="floating">Región <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
@@ -40,30 +49,30 @@
                             minlength="4"
                             maxlength="30"></ion-input>
              </ion-item>
-             <!-- <ion-item fill="outline" >
-                 <ion-label  position="floating">Nombre del Alojamiento <ion-text color="danger">*</ion-text></ion-label>
+             <ion-item fill="outline" >
+                 <ion-label  position="floating">Tipo Vehiculo <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
-                            [(ngModel)]="vehiculo.nombre_vehiculo" 
+                            [(ngModel)]="vehiculo.tipo_vehiculo" 
                             name="alojamiento"
                             type="text"
                             minlength="2"
                             maxlength="30"></ion-input>
-             </ion-item> -->
-             <ion-item fill="outline" >
+             </ion-item>
+             <!-- <ion-item fill="outline" >
                  <ion-label  position="floating">email <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             type="email"
                             placeholder="enail@domain.com"
                             [(ngModel)]="vehiculo.email" 
                             name="email"></ion-input>
-             </ion-item>
-             <ion-item fill="outline" >
+             </ion-item> -->
+             <!-- <ion-item fill="outline" >
                  <ion-label  position="floating">Telefono <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
                             type="cel"
                             [(ngModel)]="vehiculo.telefono" 
                             name="telefono"></ion-input>
-             </ion-item>
+             </ion-item> -->
             <ion-item fill="outline" >
                  <ion-label  position="floating">Marca <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
@@ -91,9 +100,38 @@
                          name="anio"
                          minlength="4"
                          maxlength="4"></ion-input>
+             </ion-item>
+        
+         
+             <ion-item fill="outline" >
+                 <ion-label  position="floating">Puestos <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            type="number"
+                            [(ngModel)]="vehiculo.puestos" 
+                            name="precio"></ion-input>
+             </ion-item>
+             <!-- <ion-item fill="outline" >
+                 <ion-label  position="floating">Aire <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            type="boolean"
+                            value="true"
+                            [(ngModel)]="vehiculo.aire" 
+                            name="precio"></ion-input>
+             </ion-item> -->
+
+             <ion-item fill="outline" >
+              <ion-label  position="floating">Descripcion <ion-text color="danger">*</ion-text></ion-label>
+              <ion-textarea required
+                            autoGrow="true"
+                            rows="4"
+                            type="text"
+                            placeholder="Escribe tu descripción aqui"
+                            minlength="50"
+                            maxlength="300"
+                            [(ngModel)]="vehiculo.descripcion" 
+                            name="descripcion"></ion-textarea>
           </ion-item>
-        
-        
+
              <ion-item fill="outline" >
                  <ion-label  position="floating">Precio <ion-text color="danger">*</ion-text></ion-label>
                  <ion-input required
@@ -101,123 +139,79 @@
                             [(ngModel)]="vehiculo.precio" 
                             name="precio"></ion-input>
              </ion-item>
+             <!-- <ion-item fill="outline" >
+                 <ion-label  position="floating">Suscripción <ion-text color="danger">*</ion-text></ion-label>
+                 <ion-input required
+                            type="boolean"
+                            value="true"
+                            [(ngModel)]="vehiculo.subscripcion" 
+                            name="precio"></ion-input>
+             </ion-item> -->
             
            
  
  
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Descripcion <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-textarea required
-                               autoGrow="true"
-                               rows="4"
-                               type="text"
-                               placeholder="Escribe tu descripción aqui"
-                               minlength="50"
-                               maxlength="300"
-                               [(ngModel)]="vehiculo.descripcion" 
-                               name="descripcion"></ion-textarea>
-             </ion-item>
+         
  
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Imagen 1 <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-input required
-                            type="url"
-                            [(ngModel)]="vehiculo.alt_img1" 
-                            name="imagen_1"></ion-input>
+
+             <ion-item>
+              <ion-row *ngIf="archivosB64[0]" >
+                <ion-col *ngIf="archivosB64[0]"
+                         size-xs="12"
+                         size-sm="12"
+                         size-md="6"
+                         size-lg="6"
+                         size-xl="6">
+                  <img src="{{archivosB64[0]}}" alt="">
+                </ion-col>
+                 
+                <ion-col  >
+                  <ion-row>
+                    <ion-col *ngIf="archivosB64[1]" size="6">
+                      <img src="{{archivosB64[1]}}"  alt="">
+                    </ion-col>
+                    <ion-col *ngIf="archivosB64[2]" size="6">
+                      <img src="{{archivosB64[2]}}"  alt="">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col *ngIf="archivosB64[3]" size="6">
+                      <img src="{{archivosB64[3]}}"  alt="">
+                    </ion-col>
+                    <ion-col *ngIf="archivosB64[4]" size="6">
+                      <img src="{{archivosB64[4]}}"  alt="">
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
              </ion-item>
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Imagen 2 <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-input required
-                             type="url"
-                            [(ngModel)]="vehiculo.alt_img2" 
-                            name="imagen2"></ion-input>
-             </ion-item>
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Imagen 3 <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-input required
-                             type="url"
-                            [(ngModel)]="vehiculo.alt_img3" 
-                            name="imagen_3"></ion-input>
-             </ion-item>
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Imagen 4 <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-input required
-                             type="url"
-                            [(ngModel)]="vehiculo.alt_img4" 
-                            name="imagen_4"></ion-input>
-             </ion-item>
-             <ion-item fill="outline" >
-                 <ion-label  position="floating">Imagen 5 <ion-text color="danger">*</ion-text></ion-label>
-                 <ion-input required
-                             type="url"
-                            [(ngModel)]="vehiculo.alt_img5" 
-                            name="imagen_5"></ion-input>
-             </ion-item>
+
+
+              <ion-item>
+                    <div>
+                      <input id="cargar" 
+                            type="file" 
+                            (change)="handleFileInputChange($event)" 
+                            accept=".png, .jpg, .jpeg" 
+                            multiple >
+                  </div>
+
+                  <label fill="outline" class="cargar" for="cargar" color="primary">
+                    <ion-icon name="cloud-upload-outline" color="primary" ></ion-icon > 
+                      Cargar Imagenes
+                  </label>
+              </ion-item>
+            
+
+           
+            
            </ion-col>
+        </ion-row>
+      </ion-grid> 
  
- 
- 
-             
-       <ion-col size-xs="12" size-sm="12" size-md="6"> 
- 
-        <!-- <ion-item>
-             <ion-card>
-                 <ion-card-header>
-                   <ion-card-title> <strong> Facilidades </strong></ion-card-title>
-                 </ion-card-header>
-                 <ion-grid fixed>
-                   <ion-row  >
-                     <ion-col  *ngFor="let check of valores; "
-                                size-xs="6" 
-                                size-md="4">
-                       
-                       <ion-item (click)="facilidades( check )" >
-                         <ion-label>{{check.name}}</ion-label>
-                         <ion-checkbox  [(ngModel)]="check.selected" 
-                                        name="facilidades">  </ion-checkbox>
-                       </ion-item>
-                      
-                      
-                           
-                     </ion-col>
-                   </ion-row>
-                 </ion-grid>
-             </ion-card>
-         </ion-item> -->
- 
-        <!-- <ion-item>
-             <ion-card>
-                 <ion-card-header>
-                   <ion-card-title> <strong> Tipo de vehiculo </strong></ion-card-title>
-                 </ion-card-header>
-                 <ion-grid fixed>
-                   <ion-row  >
-                     <ion-col  *ngFor="let check of tipo_vehiculo; "  size-xs="6" size-md="4">
-                       
-                       <ion-item (click)="tipovehiculo( check )" >
-                         <ion-label>{{check.tipo}}</ion-label>
-                         <ion-checkbox  
-                                        [(ngModel)]="check.selected" 
-                                        name="tipo_vehiculo"
-                                        maxlength="1">  
-                         </ion-checkbox>
-                       </ion-item> 
-                                                                     
-                     </ion-col>
-                   </ion-row>
-                 </ion-grid>
-             </ion-card>
-             
-         </ion-item> -->
-        <!-- <ion-item  >
-             <ion-label  *ngIf="vehiculo.tipo_vehiculos!.length > 1" 
-                         color="primary" >
-                        <strong> *** Debe seleccionar solo un tipo de vehiculo *** </strong> 
-             </ion-label>
-         </ion-item>-->
-     </ion-col>
- </ion-row>
- </ion-grid> 
+
+
+     
          
  
  
@@ -225,19 +219,34 @@
  
    
          <ion-grid fixed class="boton" >
-             <ion-row >
-                
-                     <ion-button  class="boton-volver" 
+             <ion-row > 
+             
+                     <ion-button  *ngIf="miFormulario.valid && userSuscription"
+                                   class="boton-volver" 
                                   (click)="guardar( miFormulario )"
+                                  (click)="subirImagen( miFormulario)"
                                   color="primary"
                                   > Publicar
-                     </ion-button> 
+                     </ion-button>  
+
+                     <ion-button *ngIf="!miFormulario.valid || !userSuscription"
+                                  class="boton-volver" 
+                                  disabled="true"
+                                  color="primary"
+                                  > Publicar
+                     </ion-button>  
+                   
+                   
+                
                  
                  
                      <ion-button class="boton-volver" 
                                  routerLink="/listado-vehiculos"
                                  color="primary"> Volver 
                      </ion-button>
+
+                     
+                     
                  
              </ion-row>
          </ion-grid>
@@ -249,9 +258,9 @@
   
      
  </form>
+  
  
- 
- 
+ {{miFormulario.valid}}
  
  </ion-content>
  

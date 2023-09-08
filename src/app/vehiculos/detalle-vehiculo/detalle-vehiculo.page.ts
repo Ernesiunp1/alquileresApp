@@ -9,34 +9,49 @@ import { switchMap } from 'rxjs';
   templateUrl: './detalle-vehiculo.page.html',
   styleUrls: ['./detalle-vehiculo.page.scss'],
 })
-
-
-
 export class DetalleVehiculoPage implements OnInit {
+  vehiculo!: AnunciosVehiculo | undefined;
 
-  vehiculo!: AnunciosVehiculo | undefined
+  facilidades: string[] | undefined = [];
+  idVendedor: string = '';
+  banderaBotonBorrar: boolean = false;
+  idVehiculo: string = '';
 
-  facilidades: string[] | undefined= []
-
-  constructor(private activateRoute: ActivatedRoute,
-              private vehiculoService: VehiculosService) { }
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private vehiculoService: VehiculosService
+  ) {}
 
   ngOnInit() {
+    this.activateRoute.params
+      .pipe(switchMap(({ id }) => this.vehiculoService.getVehiculosId(id)))
+      .subscribe((vehiculo) => {
+        this.idVendedor = vehiculo.user!.id;
 
-    this.activateRoute.params.pipe(
-      switchMap(({id}) => this.vehiculoService.getVehiculosId(id))
-      ).subscribe( vehiculo => this.vehiculo = vehiculo  )    
+        this.vehiculo = vehiculo;
 
+        this.idVehiculo = vehiculo.id;
+
+        this.mostrarBotonBorrar(this.idVendedor);
+      });
   }
 
+  onClick() {} 
 
-
-  onClick(){
-
+  mostrarBotonBorrar(idVendedor: string) {
+    const idUsuario = localStorage.getItem('userid');
+    if (idVendedor === idUsuario) {
+      this.banderaBotonBorrar = true;
+    } else {
+      console.log('Los Id son diferentes');
+    }
   }
 
-
-
-
-
+  borrarVehiculo(idVehiculo: string) {
+    const BorrarVehiculo = this.vehiculoService
+      .borrarVehiculo(idVehiculo)
+      .subscribe((resp) => {
+        console.log(resp);
+      });
+  }
 }

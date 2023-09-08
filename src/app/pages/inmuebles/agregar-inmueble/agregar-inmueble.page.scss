@@ -13,3 +13,27 @@ ion-item{
   
 
 }
+
+
+#cargar{
+    display: none;
+}
+
+.cargar{
+    color: red;
+    margin: 5%;
+    border: 1px solid red;
+    padding: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cargar:active{
+    transform: scale( 0.9);
+}
+
+#iheader{
+    display: flex;
+    justify-content:space-between
+    
+  }

@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <app-boton-menu></app-boton-menu>
+    <ion-title slot="end" >Restaurar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div id="content">
+    
+ 
+
+  <ion-row>
+    <ion-col >
+
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Restaurar Contraseña</ion-card-subtitle>
+          <ion-card-title>Ingrese su nueva contraseña</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form [formGroup]="miFormulario"
+                (ngSubmit) ="restaurar()"
+           >
+      
+                
+        <ion-list>
+          <ion-item >
+            <ion-label>Contraseña Nueva:  <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required
+                      formControlName="contraseña"   
+                      pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"        
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Confirmar:   <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required
+                      type="password"
+                      formControlName="confirmar"
+                      pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            ></ion-input>
+          </ion-item>
+          
+        </ion-list>
+
+     
+        <ion-button *ngIf="miFormulario.invalid;else formValid"
+                                  type="submit"
+                                  expand="block" 
+                                  size="small" 
+                                  color="danger"
+                                  disabled> Actualizar
+                      </ion-button>
+    
+                    <ng-template #formValid >
+    
+                      <ion-button 
+                                  type="submit"
+                                  expand="block" 
+                                  size="small" 
+                                  color="danger"
+                                  > Actualizar
+                      </ion-button>
+    
+                    </ng-template>
+        
+        
+      </form>
+       
+        </ion-card-content>
+      </ion-card>
+
+
+    </ion-col>
+  </ion-row>
+
+
+  
+
+</div>
+
+</ion-content>

@@ -1,0 +1,119 @@
+<ion-header>
+  <!-- <app-boton-menu></app-boton-menu>  -->
+</ion-header>
+
+<ion-content >
+  <div id="content" >
+    <ion-row>
+      <ion-col id = "col1" >
+        <div class="flex" >
+    
+          <ion-card>
+            <ion-card-header color="ligth">
+            
+              <ion-card-title  id="titulo" color="danger">Login</ion-card-title>
+              <ion-card-title> <ion-icon name="person" color="primary"></ion-icon></ion-card-title>
+    
+            
+            </ion-card-header> 
+            <ion-card-content>
+            
+              <form [formGroup]="miFormulario"
+                    (ngSubmit)="login()" >
+                
+                          
+                  <ion-list>
+                    <ion-item >
+                      <ion-label>Email:  <ion-text color="danger">*</ion-text></ion-label>
+                      <ion-input required
+                                formControlName="email"           
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Password <ion-text color="danger">*</ion-text></ion-label>
+                      <ion-input required
+                                type="password"
+                                formControlName="password"
+                                pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                      ></ion-input>
+                    </ion-item>
+                    
+                  </ion-list>
+                  
+                  <ion-item lines="none"></ion-item>
+    
+                      <ion-button *ngIf="miFormulario.invalid;else formValid"
+                                  type="submit"
+                                  expand="block" 
+                                  size="small" 
+                                  color="danger"
+                                  disabled> Login
+                      </ion-button>
+    
+                    <ng-template #formValid >
+    
+                      <ion-button 
+                                  type="submit"
+                                  expand="block" 
+                                  size="small" 
+                                  color="danger"
+                                  > Login
+                      </ion-button>
+    
+                    </ng-template>
+    
+                  <ion-item lines="none"></ion-item>
+    
+                  
+            <ion-card-subtitle 
+                              id="olvideClave" 
+                              type="danger"
+                              (click) = "presentAlert(miFormulario.value.email)"
+                              disable
+                              pointer = "true">
+            Olvide mi password
+            </ion-card-subtitle>
+                  
+                </form>
+    
+            </ion-card-content>
+            <br>
+            <ion-card-subtitle type="danger"
+                               pointer = "true"
+                               routerLink="/auth/register" >
+              Crea una cuenta!!!
+            </ion-card-subtitle>
+    
+            <ion-item>
+    
+        
+              
+            </ion-item>
+          </ion-card>        
+    
+    
+    
+    
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <!--Content before waves-->
+
+
+    <div class="flexBoton">
+      <ion-button  type="button"
+                   expand="block" 
+                   size="Large" 
+                   color="danger"
+                   (click)="moverHome()">
+        IR AL INICIO
+      </ion-button>
+    </div>
+    
+    
+    
+  </div>
+   
+
+</ion-content>

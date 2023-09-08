@@ -22,7 +22,11 @@ export class BuscarInmueblePage implements OnInit {
 
   ngOnInit() {
     this.inmueblePorRegion.getInmuebles()
-    .subscribe( inmueble  => this.inmuebles.push(...inmueble)  )
+    .subscribe( inmueble  => {
+     console.log(inmueble);
+     
+      this.inmuebles.push(...inmueble)
+    } )
     
   }
 
@@ -41,7 +45,7 @@ export class BuscarInmueblePage implements OnInit {
     this.textoBuscar = region
      
   }
-
+ 
 
 
  

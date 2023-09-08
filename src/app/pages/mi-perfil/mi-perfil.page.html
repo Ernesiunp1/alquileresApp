@@ -1,0 +1,162 @@
+<ion-header id="iheader" >
+  <app-boton-menu></app-boton-menu>
+  <app-saludo></app-saludo>
+ </ion-header>
+ 
+
+<ion-content>
+
+  <ion-item> 
+    <ion-label> 
+      <h1>Mi Perfil</h1>
+    </ion-label>
+  </ion-item>
+
+  
+  <ion-row id="actualizar_datos">
+    <ion-col size="7">
+
+      <ion-card>
+        <ion-list>
+          <ion-item>
+            <ion-label> nombre:  {{data.nombre | titlecase}} </ion-label>          
+          </ion-item>        
+          <ion-item>
+            <ion-label> apellido:  {{data.apellido | titlecase}} </ion-label>
+          </ion-item>        
+          <ion-item>
+            <ion-label> correo: {{data.email}} </ion-label>
+          </ion-item>        
+          <ion-item>
+            <ion-label> telefono: {{data.telefono}} </ion-label>
+          </ion-item>     
+        </ion-list>
+
+        <ion-button id="boton_actualizar"
+                    expand="block"
+                    (click)="actualizaDatos()">Actualizar Datos</ion-button>
+      </ion-card>
+
+
+      <form  *ngIf="banderaActualizar"
+             [formGroup]="ActualizarDatosForm"
+             (ngSubmit)="actualizaDatos">
+        
+     
+        <ion-item>
+          <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="nombre" type="text" ></ion-input>
+        </ion-item>        
+        <ion-item>
+          <ion-label position="floating">Apellido <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="apellido" type="text" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Telefono <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="telefono" type="text" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="email" type="text" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input  required 
+                      formControlName="password" 
+                      type="password"
+                      pattern="(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                      #pass ></ion-input>
+        </ion-item>
+
+          <ion-label *ngIf="ActualizarDatosForm.touched && ActualizarDatosForm.invalid" > 
+            <ion-text color="danger">
+            <p>La contraseña debe tener almenos una mayuscula un numero y 6 caracteres</p>
+          </ion-text></ion-label>
+
+
+        <ion-button block color="primary" 
+                    type="submit" 
+                    [disabled]="ActualizarDatosForm.invalid"
+                    (click)="actualizar()">
+          Actualizar!
+        </ion-button>
+      </form>
+
+
+
+
+
+      <!-- <ion-list>
+        <ion-item>
+          <ion-label> nombre:  {{data.nombre | titlecase}} </ion-label>          
+        </ion-item>        
+        <ion-item>
+          <ion-label> apellido:  {{data.apellido | titlecase}} </ion-label>
+        </ion-item>        
+        <ion-item>
+          <ion-label> correo: {{data.email}} </ion-label>
+        </ion-item>        
+        <ion-item>
+          <ion-label> telefono: {{data.telefono}} </ion-label>
+        </ion-item>     
+
+        
+      </ion-list>
+
+
+
+    </ion-col>
+    <ion-col size="6">
+      
+      <ion-button expand="block">Actualizar Datos</ion-button> -->
+
+
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+  <ion-item> 
+    <ion-label> 
+      <h1>Mis Publicaciones</h1>
+    </ion-label>
+  </ion-item>
+
+
+  
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col *ngFor="let inmueble of inmuebles"  size-xs="12"
+                size-xs="6"
+                size-sm="6"
+                size-md="6"
+                size-lg="4"
+                size-xl="3">
+             <app-tarjeta [inmueble]="inmueble" ></app-tarjeta> 
+     
+    </ion-col>
+ </ion-row>
+
+ <ion-row>
+  <ion-col *ngFor="let vehiculo of vehiculos"  size-xs="12"
+            size-xs="6"
+            size-sm="6"
+            size-md="6"
+            size-lg="4"
+            size-xl="3">
+            <app-tarjeta-vehiculo [vehiculo]="vehiculo"  ></app-tarjeta-vehiculo>
+ 
+</ion-col>
+</ion-row>
+
+
+
+</ion-grid>
+
+
+
+
+
+</ion-content>

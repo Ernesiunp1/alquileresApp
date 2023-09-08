@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 export interface Inmueble {
     usuarios:           Usuario[];
     anuncios_inmuebles: AnunciosInmueble[];
@@ -6,9 +7,10 @@ export interface Inmueble {
 
 export interface AnunciosInmueble {
     id?:              string;
-    usuario?:         string;
+    usuario?:         string | null;
     region?:          string;
     ciudad?:          string;
+    nombreAnuncio:    string;
     nombre_inmueble?: string;
     email?:           string;
     telefono?:        number;
@@ -24,6 +26,8 @@ export interface AnunciosInmueble {
     alt_img3?:         string;
     alt_img4?:         string;
     alt_img5?:         string;
+    suscripcion:        any
+    user?:              Usuario;
 }
 
 /*export enum TipoInmueble {
@@ -36,8 +40,9 @@ export interface AnunciosInmueble {
 }*/
 
 export interface AnunciosVehiculo {
-    id?:            string;
-    usuario?:       string;
+    id?:            any;
+    usuario?:       string | null;
+    nombreAnuncio:  string;
     region?:        string;
     telefono?:      string;
     ciudad?:        string;
@@ -57,6 +62,7 @@ export interface AnunciosVehiculo {
     alt_img3?:         string;
     alt_img4?:         string;
     alt_img5?:         string;
+    user?: Usuario
 
 
 }
@@ -70,13 +76,63 @@ export interface AnunciosVehiculo {
 }*/
 
 export interface Usuario {
-    id:           number;
-    usuario:      string;
-    email:        string;
-    telefono:     number;
-    subscripcion: boolean;
+
+    id:            string,
+    nombre:        string,
+    aliasUsuario?: string,
+    apellido:      string ,
+    email:         any,
+    password:      string,
+    telefono:      number,
+    suscripcion:   boolean,
+    isActive:      boolean,
+    roles:         any,
+    token:          any,
+    
+
+    // id?:           number;
+    // usuario?:      string;
+    // email?:        string;
+    // telefono?:     number;
+    // subscripcion?: boolean;
+
+
 }
 
 export interface Facil{
     facil: string[]
+}
+
+export interface Vehiculo{
+      "usuario":string | null,
+      "nombreAnuncio": string,
+      "region":string,
+      "ciudad":string,
+      "tipo_vehiculo": string,
+      "modelo":string,
+      "marca":string,
+      "anio": number,
+      "puestos": number,
+      "aire": boolean,
+      "descripcion": string,
+      "precio": number,
+      "subscripcion":boolean
+}
+
+export interface Inmueble {
+
+    "usuario":         string,
+    "nombreAnuncio":   string,
+    "region":          string,
+    "ciudad":          string,
+    "nombre_inmueble": string,
+    "habitaciones":    number,
+    "banos":           number,
+    "amoblado":        boolean,
+    "precio":          number,
+    "tipo_inmuebles":  any,
+    "facilidades":     any,
+    "descripcion":     string,
+    "suscripcion":     boolean
+
 }
